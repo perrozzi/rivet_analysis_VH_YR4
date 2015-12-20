@@ -93,8 +93,8 @@ namespace Rivet {
 
       // jets
       for (size_t i=0; i < njets; ++i) {
-        _h_VptInc_AjetInc__log10_d.push_back(bookHisto1D("VptInc_AjetInc__log10_d_" +to_str(i) + to_str(i+1), hist_nbins, 0.2, 4));
-        _h_VptInc_AjetInc__ajets_pT.push_back(bookHisto1D("VptInc_AjetInc__aJet_pT" +to_str(i),logspace(hist_nbins,5,300)));
+        _h_VptInc_AjetInc__log10_d.push_back(bookHisto1D("VptInc_AjetInc__log10_d_" +to_str(i) + to_str(i+1), 100, 0.2, 4));
+        _h_VptInc_AjetInc__ajets_pT.push_back(bookHisto1D("VptInc_AjetInc__aJet_pT" +to_str(i),logspace(hist_nbins,0,500)));
         _h_VptInc_AjetInc__ajets_eta.push_back(bookHisto1D("VptInc_AjetInc__aJet_eta" +to_str(i),hist_nbins,-5,5));
       }
       
@@ -104,15 +104,15 @@ namespace Rivet {
           std::vector<Histo1DPtr> dummy1;
           
           _h__weights.push_back(dummy1);
-          _h__weights[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__ev_weights",4,-2,2));
+          _h__weights[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__ev_weights",3,-1.5,1.5));
           
           // Z properties
           _h__V_mass.push_back(dummy1);
-          _h__V_mass[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_mass",hist_nbins,51,131));
+          _h__V_mass[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_mass",hist_nbins,60,120));
           _h__V_rap.push_back(dummy1);
-          _h__V_rap[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_rap",hist_nbins,-5,5));
+          _h__V_rap[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_rap",hist_nbins,hist_H_rap_min,hist_H_rap_max));
           _h__V_pT.push_back(dummy1);
-          _h__V_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_pT",logspace(hist_nbins,5,300)));
+          _h__V_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_pT",logspace(hist_nbins,hist_V_pt_min,hist_V_pt_max)));
 
           // higgs_candidate properties
           _h__higgs_candidate_mass.push_back(dummy1);
@@ -126,17 +126,17 @@ namespace Rivet {
           _h__leadlep_pT.push_back(dummy1);
           _h__leadlep_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__leadlep_pT",logspace(hist_nbins,5,300)));
           _h__leadlep_eta.push_back(dummy1);
-          _h__leadlep_eta[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__leadlep_eta",hist_nbins,-5,5));
+          _h__leadlep_eta[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__leadlep_eta",hist_nbins,hist_H_rap_max,hist_H_rap_max));
           _h__subleadlep_pT.push_back(dummy1);
-          _h__subleadlep_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__subleadlep_pT",logspace(hist_nbins,5,300)));
+          _h__subleadlep_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__subleadlep_pT",logspace(hist_nbins,1,hist_V_pt_max)));
           _h__subleadlep_eta.push_back(dummy1);
-          _h__subleadlep_eta[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__subleadlep_eta",hist_nbins,-5,5));
+          _h__subleadlep_eta[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__subleadlep_eta",hist_nbins,hist_H_rap_min,hist_H_rap_max));
 
           // H+Z properties
           _h__HV_rap.push_back(dummy1);
-          _h__HV_rap[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__HV_rap",hist_nbins,-5,5));
+          _h__HV_rap[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__HV_rap",hist_nbins,hist_H_rap_min,hist_H_rap_max));
           _h__HV_pT.push_back(dummy1);
-          _h__HV_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__HV_pT",logspace(hist_nbins,5,300)));
+          _h__HV_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__HV_pT",logspace(hist_nbins,1,hist_V_pt_max)));
 
           // higgs jets
           std::vector<std::vector<Histo1DPtr> > dummy2;
@@ -146,8 +146,8 @@ namespace Rivet {
           _h__dau_eta[ivpt].push_back(dummy1);
           _h__dau_pT[ivpt].push_back(dummy1);
           for (size_t i=0; i < 2; ++i) {
-            _h__dau_eta[ivpt][iajet].push_back(bookHisto1D("VptInc_Ajet"+njetbin_labels[iajet]+"__h_dau_eta" + to_str(i),hist_nbins,-5,5));
-            _h__dau_pT[ivpt][iajet].push_back(bookHisto1D("VptInc_Ajet"+njetbin_labels[iajet]+"__h_dau_pT" + to_str(i),logspace(hist_nbins,5,300)));
+            _h__dau_eta[ivpt][iajet].push_back(bookHisto1D("VptInc_Ajet"+njetbin_labels[iajet]+"__h_dau_eta" + to_str(i),hist_nbins,hist_H_rap_min,hist_H_rap_max));
+            _h__dau_pT[ivpt][iajet].push_back(bookHisto1D("VptInc_Ajet"+njetbin_labels[iajet]+"__h_dau_pT" + to_str(i),logspace(hist_nbins,1,hist_V_pt_max)));
           }
 
           // angles
@@ -167,9 +167,9 @@ namespace Rivet {
           
           // nJets
           _h__najets.push_back(dummy1);
-          _h__najets[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__najets",10,0,10));
+          _h__najets[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__najets",11,-0.5,10.5));
           _h__nbjets.push_back(dummy1);
-          _h__nbjets[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__nbjets",10,0,10));
+          _h__nbjets[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__nbjets",11,-0.5,10.5));
         }
       }
 
