@@ -304,10 +304,12 @@ namespace Rivet {
       /// Loop over pT bins, inclusive jet
       //////////////////////////////////////////////////
       for (size_t ivpt=0; ivpt < Vpt_bins; ivpt++){
+          
+        if(Z.pT() < cut_Zll_pt_low_edge_bin[ivpt] || Z.pT() > cut_Zll_pt_high_edge_bin[ivpt]) continue;
+          
         for (size_t iajet=0; iajet < NJet_bins; iajet++){
 
-          
-          if(Z.pT() < cut_Zll_pt_low_edge_bin[ivpt] || Z.pT() > cut_Zll_pt_high_edge_bin[ivpt]) continue;
+          if(ajets.size() < cut_najets_low_edge_bin[iajet] || ajets.size() >= cut_najets_high_edge_bin[iajet]) continue;
           
           if(!higgs_is_undecayed){
             _h__dau_eta[ivpt][iajet][0]->fill(h0.eta(),weight);
