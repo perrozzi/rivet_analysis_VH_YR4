@@ -18,14 +18,14 @@ namespace Rivet {
   using namespace Cuts;
   Cut cut = etaIn(-5,5) & (pT >= 0.0*GeV);
 
-  static const int NJet_bins = 4;
+  static const size_t NJet_bins = 4;
   
   string njetbin_labels[NJet_bins]          =   {"Incl","0","1","gt1"};
   
   double cut_najets_low_edge_bin[NJet_bins]  =   {   0,  0, 1,   1};
   double cut_najets_high_edge_bin[NJet_bins] =   {1e10,  1, 2,1e10};
 
-  static const int Vpt_bins = 4;
+  static const size_t Vpt_bins = 4;
   
   string ptbin_labels[Vpt_bins]             =   {  "Incl",  "Low",  "Med",   "Hig"};
   

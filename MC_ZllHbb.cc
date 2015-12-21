@@ -215,7 +215,7 @@ namespace Rivet {
       Jets ajets;
       ajets.clear();
       Jet h0, h1; 
-      FourMomentum  higgs_candidate,Z, leadlep, subleadlep, HV;
+      FourMomentum  higgs_candidate,Z, HV;
       std::vector<size_t> b_indices;
       int na = 0.0;
       int nb = 0.0;
@@ -261,7 +261,12 @@ namespace Rivet {
         higgs_candidate = h0.momentum() + h1.momentum();
       }
       Z = zll[0].momentum();
-      // leadlep = zll[0].constituents[0].pT()
+      
+      Particles leptons = zmmfinder.bosons().size()>0 ? zmmfinder.constituents(cmpMomByPt) : zeefinder.constituents(cmpMomByPt);
+      // const FourMomentum lminus = leptons[0].charge() < 0 ? leptons[0].momentum() : leptons[1].momentum();
+      // const FourMomentum lplus = leptons[0].charge() < 0 ? leptons[1].momentum() : leptons[0].momentum();      
+      const FourMomentum leadlep = leptons[0].momentum();
+      const FourMomentum subleadlep = leptons[1].momentum();
 
       // HV system
       HV = higgs_candidate + Z;
@@ -324,10 +329,10 @@ namespace Rivet {
           _h__V_mass[ivpt][iajet]->fill(Z.mass(),weight);
           _h__V_rap[ivpt][iajet]->fill(Z.rapidity(),weight);
           _h__V_pT[ivpt][iajet]->fill(Z.pT(),weight);
-          _h__leadlep_pT[ivpt][iajet]->fill(0,weight);
-          _h__leadlep_eta[ivpt][iajet]->fill(0,weight);
-          _h__subleadlep_pT[ivpt][iajet]->fill(0,weight);
-          _h__subleadlep_eta[ivpt][iajet]->fill(0,weight);
+          _h__leadlep_pT[ivpt][iajet]->fill(leadlep.pT(),weight);
+          _h__leadlep_eta[ivpt][iajet]->fill(leadlep.eta(),weight);
+          _h__subleadlep_pT[ivpt][iajet]->fill(subleadlep.pT(),weight);
+          _h__subleadlep_eta[ivpt][iajet]->fill(subleadlep.eta(),weight);
 
           _h__higgs_candidate_mass[ivpt][iajet]->fill(higgs_candidate.mass(),weight);
           _h__higgs_candidate_rap[ivpt][iajet]->fill(higgs_candidate.rapidity(),weight);
