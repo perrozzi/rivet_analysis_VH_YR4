@@ -94,7 +94,7 @@ namespace Rivet {
       // jets
       for (size_t i=0; i < njets; ++i) {
         _h_VptInc_AjetInc__log10_d.push_back(bookHisto1D("VptInc_AjetInc__log10_d_" +to_str(i) + to_str(i+1), 100, 0.2, 4));
-        _h_VptInc_AjetInc__ajets_pT.push_back(bookHisto1D("VptInc_AjetInc__aJet_pT" +to_str(i),logspace(hist_nbins,0,500)));
+        _h_VptInc_AjetInc__ajets_pT.push_back(bookHisto1D("VptInc_AjetInc__aJet_pT" +to_str(i),logspace(hist_nbins,0.1,500)));
         _h_VptInc_AjetInc__ajets_eta.push_back(bookHisto1D("VptInc_AjetInc__aJet_eta" +to_str(i),hist_nbins,-5,5));
       }
       
@@ -112,7 +112,7 @@ namespace Rivet {
           _h__V_rap.push_back(dummy1);
           _h__V_rap[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_rap",hist_nbins,hist_H_rap_min,hist_H_rap_max));
           _h__V_pT.push_back(dummy1);
-          _h__V_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_pT",logspace(hist_nbins,hist_V_pt_min,hist_V_pt_max)));
+          _h__V_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__V_pT",logspace(hist_nbins,hist_V_pt_min==0?0.1:hist_V_pt_min,hist_V_pt_max)));
 
           // higgs_candidate properties
           _h__higgs_candidate_mass.push_back(dummy1);
@@ -120,7 +120,7 @@ namespace Rivet {
           _h__higgs_candidate_rap.push_back(dummy1);
           _h__higgs_candidate_rap[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__higgs_candidate_rap",hist_nbins,hist_H_rap_min,hist_H_rap_max));
           _h__higgs_candidate_pT.push_back(dummy1);
-          _h__higgs_candidate_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__higgs_candidate_pT",logspace(hist_nbins,hist_H_pt_min,hist_H_pt_max)));
+          _h__higgs_candidate_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__higgs_candidate_pT",logspace(hist_nbins,hist_H_pt_min==0?0.1:hist_H_pt_min,hist_H_pt_max)));
 
           // V lepton properties
           _h__leadlep_pT.push_back(dummy1);
