@@ -27,7 +27,7 @@ namespace Rivet {
 
   static const size_t Vpt_bins = 4;
   
-  string ptbin_labels[Vpt_bins]             =   {  "Incl",  "Low",  "Med",   "Hig"};
+  string ptbin_labels[Vpt_bins]             =   {  "Incl",  "Low",  "Med",   "High"};
   
   double cut_Zll_pt_low_edge_bin[Vpt_bins]  =   {   0*GeV,  0*GeV,100*GeV, 200*GeV};
   double cut_Zll_pt_high_edge_bin[Vpt_bins] =   {1e10*GeV,100*GeV,200*GeV,1e10*GeV};
