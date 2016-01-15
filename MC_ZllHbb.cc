@@ -136,23 +136,23 @@ namespace Rivet {
         _h__HV_pT[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__HV_pT",logspace(hist_nbins,1,hist_V_pt_max)));
         // higgs jets
         std::vector<std::vector<Histo1DPtr> > dummy2;
-        _h__dau_eta.push_back(dummy2);
-        _h__dau_pT.push_back(dummy2);
+        // _h__dau_eta.push_back(dummy2);
+        // _h__dau_pT.push_back(dummy2);
         
-        _h__dau_eta[ivpt].push_back(dummy1);
-        _h__dau_pT[ivpt].push_back(dummy1);
-        for (size_t i=0; i < 2; ++i) {
-          _h__dau_eta[ivpt][iajet].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__h_dau_eta" + to_str(i),hist_nbins,hist_H_rap_min,hist_H_rap_max));
-          _h__dau_pT[ivpt][iajet].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__h_dau_pT" + to_str(i),logspace(hist_nbins,1,hist_V_pt_max)));
-        }
+        // _h__dau_eta[ivpt].push_back(dummy1);
+        // _h__dau_pT[ivpt].push_back(dummy1);
+        // for (size_t i=0; i < 2; ++i) {
+          // _h__dau_eta[ivpt][iajet].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__h_dau_eta" + to_str(i),hist_nbins,hist_H_rap_min,hist_H_rap_max));
+          // _h__dau_pT[ivpt][iajet].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__h_dau_pT" + to_str(i),logspace(hist_nbins,1,hist_V_pt_max)));
+        // }
 
         // angles
-        _h__dR_jj.push_back(dummy1);
-        _h__dR_jj[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__dR_jj",hist_nbins,0,5));
-        _h__dphi_jj.push_back(dummy1);
-        _h__dphi_jj[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__dphi_jj",hist_nbins,0,3.2));
-        _h__deta_jj.push_back(dummy1);
-        _h__deta_jj[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__deta_jj", hist_nbins,0,5));
+        // _h__dR_jj.push_back(dummy1);
+        // _h__dR_jj[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__dR_jj",hist_nbins,0,5));
+        // _h__dphi_jj.push_back(dummy1);
+        // _h__dphi_jj[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__dphi_jj",hist_nbins,0,3.2));
+        // _h__deta_jj.push_back(dummy1);
+        // _h__deta_jj[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__deta_jj", hist_nbins,0,5));
 
         _h__dR_HV.push_back(dummy1);
         _h__dR_HV[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__dR_HV",hist_nbins,0,5));
@@ -364,15 +364,15 @@ namespace Rivet {
       }
       for (size_t ivpt=0; ivpt < 1; ivpt++){
         for (size_t iajet=0; iajet < 1; iajet++){
-          if(!higgs_is_undecayed){
-            _h__dau_eta[ivpt][iajet][0]->fill(h0.eta(),weight);
-            _h__dau_eta[ivpt][iajet][1]->fill(h1.eta(),weight);
-            _h__dau_pT[ivpt][iajet][0]->fill(h0.pT(),weight);
-            _h__dau_pT[ivpt][iajet][1]->fill(h1.pT(),weight);
-            _h__dR_jj[ivpt][iajet]->fill(deltaR(h0,h1),weight);
-            _h__deta_jj[ivpt][iajet]->fill(deltaEta(h0,h1),weight);
-            _h__dphi_jj[ivpt][iajet]->fill(deltaPhi(h0,h1),weight);
-          }
+          // if(!higgs_is_undecayed){
+            // _h__dau_eta[ivpt][iajet][0]->fill(h0.eta(),weight);
+            // _h__dau_eta[ivpt][iajet][1]->fill(h1.eta(),weight);
+            // _h__dau_pT[ivpt][iajet][0]->fill(h0.pT(),weight);
+            // _h__dau_pT[ivpt][iajet][1]->fill(h1.pT(),weight);
+            // _h__dR_jj[ivpt][iajet]->fill(deltaR(h0,h1),weight);
+            // _h__deta_jj[ivpt][iajet]->fill(deltaEta(h0,h1),weight);
+            // _h__dphi_jj[ivpt][iajet]->fill(deltaPhi(h0,h1),weight);
+          // }
           _h__weights[ivpt][iajet]->fill(weight/(std::abs(weight)>0?std::abs(weight):1));
           
           
@@ -440,10 +440,10 @@ namespace Rivet {
       for (size_t ivpt=0; ivpt < 1; ivpt++){
         for (size_t iajet=0; iajet < 1; iajet++){
           
-          for (size_t i = 0; i < 2; ++i) {
-            scale(_h__dau_eta[ivpt][iajet][i], crossSection()/sumOfWeights());
-            scale(_h__dau_pT[ivpt][iajet][i], crossSection()/sumOfWeights());
-          }
+          // for (size_t i = 0; i < 2; ++i) {
+            // scale(_h__dau_eta[ivpt][iajet][i], crossSection()/sumOfWeights());
+            // scale(_h__dau_pT[ivpt][iajet][i], crossSection()/sumOfWeights());
+          // }
           
           scale(_h__V_mass[ivpt][iajet], crossSection()/sumOfWeights());
           scale(_h__V_rap[ivpt][iajet], crossSection()/sumOfWeights());
@@ -453,9 +453,9 @@ namespace Rivet {
           scale(_h__HV_pT[ivpt][iajet], crossSection()/sumOfWeights());
           scale(_h__HV_rap[ivpt][iajet], crossSection()/sumOfWeights());
 
-          scale(_h__dR_jj[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__deta_jj[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__dphi_jj[ivpt][iajet], crossSection()/sumOfWeights());
+          // scale(_h__dR_jj[ivpt][iajet], crossSection()/sumOfWeights());
+          // scale(_h__deta_jj[ivpt][iajet], crossSection()/sumOfWeights());
+          // scale(_h__dphi_jj[ivpt][iajet], crossSection()/sumOfWeights());
 
           scale(_h__dR_HV[ivpt][iajet], crossSection()/sumOfWeights());
           scale(_h__deta_HV[ivpt][iajet], crossSection()/sumOfWeights());
