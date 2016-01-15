@@ -8,6 +8,7 @@
 #include "Rivet/Projections/MissingMomentum.hh"
 #include "Rivet/Projections/FastJets.hh"
 #include "Rivet/Projections/UnstableFinalState.hh"
+#include "Rivet/Projections/IdentifiedFinalState.hh"
 
 namespace Rivet {
 
@@ -91,6 +92,8 @@ namespace Rivet {
   std::vector<Histo1DPtr> _h_VptInc_AjetInc__log10_d;
   std::vector<Histo1DPtr> _h_VptInc_AjetInc__ajets_pT;
   std::vector<Histo1DPtr> _h_VptInc_AjetInc__ajets_eta;
+  std::vector<Histo1DPtr> _h_VptInc_AjetInc__Sel_ajets_pT;
+  std::vector<Histo1DPtr> _h_VptInc_AjetInc__Sel_ajets_eta;
   
   //////////////////////////////////////////////////
   /// All pT bins, all jet bins
@@ -103,7 +106,7 @@ namespace Rivet {
   std::vector<std::vector<std::vector<Histo1DPtr> > > _h__dau_eta;
   std::vector<std::vector<std::vector<Histo1DPtr> > > _h__dau_pT;
   std::vector<std::vector<Histo1DPtr> > _h__HV_pT, _h__HV_rap;
-  std::vector<std::vector<Histo1DPtr> > _h__najets, _h__nbjets;
+  std::vector<std::vector<Histo1DPtr> > _h__Sel_najets, _h__Sel_nbjets;
   std::vector<std::vector<Histo1DPtr> > _h__dR_jj, _h__dphi_jj, _h__deta_jj;
   std::vector<std::vector<Histo1DPtr> > _h__dR_HV, _h__dphi_HV, _h__deta_HV;
   std::vector<std::vector<Histo1DPtr> > _h__weights;

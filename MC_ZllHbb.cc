@@ -64,6 +64,18 @@ namespace Rivet {
       ///////////// END OF CHANNEL DEPENDENT PART
       ////////////////////////////////////////////////////////////////////////////////////////////
       
+      ////////////////////////////////////////////////////////
+      // Unstable Higgs
+      ////////////////////////////////////////////////////////
+      UnstableFinalState undec_higgs(PID::HIGGS);
+      addProjection(undec_higgs, "UFS");
+      IdentifiedFinalState higgses(PID::HIGGS);
+      jetproinput.addVetoOnThisFinalState(higgses);
+      addProjection(higgses, "Higgses");
+      VetoedFinalState rest(fs);
+      rest.addVetoOnThisFinalState(higgses);
+      addProjection(rest, "Rest");
+
       // make jets
       FastJets jetpro(jetproinput, FastJets::ANTIKT, 0.5);
       addProjection(jetpro, "jetpro");
@@ -76,12 +88,6 @@ namespace Rivet {
       ////////////////////////////////////////////////////////
       MissingMomentum met(fs);
       addProjection(met, "MET");
-      
-      ////////////////////////////////////////////////////////
-      // Unstable Higgs
-      ////////////////////////////////////////////////////////
-      UnstableFinalState undec_higgs(PID::HIGGS);
-      addProjection(undec_higgs, "UFS");
 
       initialize_Histos();
     }
@@ -94,11 +100,16 @@ namespace Rivet {
       std::vector<Histo1DPtr> dummy1;
       
       // CONTROL PLOTS ONLY IN INCLUSIVE CASE
-      // jets
+      // all jets used for dij
       for (size_t i=0; i < njets; ++i) {
         _h_VptInc_AjetInc__log10_d.push_back(bookHisto1D("xcheck_VptInc_AjetInc__log10_d_" +to_str(i) + to_str(i+1), 100, 0.2, 4));
         _h_VptInc_AjetInc__ajets_pT.push_back(bookHisto1D("xcheck_VptInc_AjetInc__aJet_pT" +to_str(i),logspace(hist_nbins,0.1,500)));
         _h_VptInc_AjetInc__ajets_eta.push_back(bookHisto1D("xcheck_VptInc_AjetInc__aJet_eta" +to_str(i),hist_nbins,-5,5));
+      }
+      // selected jets
+      for (size_t i=0; i < 1; ++i) {
+        _h_VptInc_AjetInc__Sel_ajets_pT.push_back(bookHisto1D("xcheck_VptInc_AjetInc__Sel_aJet_pT" +to_str(i),hist_nbins,0,500));
+        _h_VptInc_AjetInc__Sel_ajets_eta.push_back(bookHisto1D("xcheck_VptInc_AjetInc__Sel_aJet_eta" +to_str(i),hist_nbins,-5,5));
       }
       
       // CONTROL PLOTS ONLY IN INCLUSIVE CASE (didn't change the histo array structure in case some histos need to be "promoted")
@@ -151,10 +162,10 @@ namespace Rivet {
         _h__deta_HV[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__deta_HV", hist_nbins,0,5));
         
         // nJets
-        _h__najets.push_back(dummy1);
-        _h__najets[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__najets",11,-0.5,10.5));
-        _h__nbjets.push_back(dummy1);
-        _h__nbjets[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__nbjets",11,-0.5,10.5));
+        _h__Sel_najets.push_back(dummy1);
+        _h__Sel_najets[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__Sel_najets",11,-0.5,10.5));
+        _h__Sel_nbjets.push_back(dummy1);
+        _h__Sel_nbjets[ivpt].push_back(bookHisto1D("xcheck_Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__Sel_nbjets",11,-0.5,10.5));
       }
     }
       
@@ -176,7 +187,7 @@ namespace Rivet {
           _h__leadlep_pT.push_back(dummy1);
           _h__leadlep_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__leadlep_pT",logspace(hist_nbins,5,300)));
           _h__leadlep_eta.push_back(dummy1);
-          _h__leadlep_eta[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__leadlep_eta",hist_nbins,hist_H_rap_max,hist_H_rap_max));
+          _h__leadlep_eta[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__leadlep_eta",hist_nbins,hist_H_rap_min,hist_H_rap_max));
           _h__subleadlep_pT.push_back(dummy1);
           _h__subleadlep_pT[ivpt].push_back(bookHisto1D("Vpt"+ptbin_labels[ivpt]+"_Ajet"+njetbin_labels[iajet]+"__subleadlep_pT",logspace(hist_nbins,1,hist_V_pt_max)));
           _h__subleadlep_eta.push_back(dummy1);
@@ -215,8 +226,29 @@ namespace Rivet {
       const ZFinder& zeefinder = applyProjection<ZFinder>(event, "zeefinder");
       const ZFinder& zmmfinder = applyProjection<ZFinder>(event, "zmmfinder");
       const Particles zll = zeefinder.bosons() + zmmfinder.bosons();
-      bool higgs_is_undecayed = false;
+      // bool higgs_is_undecayed = false;
+      bool higgs_is_undecayed = true;
+      ParticleVector higgses =
+      applyProjection<IdentifiedFinalState>(event, "Higgses").particles();
+      // unstable higgs
+      const UnstableFinalState& undec_higgs = applyProjection<UnstableFinalState>(event, "UFS");
+      // jets
+      const FastJets& jetpro = applyProjection<FastJets>(event,"jetpro");
+      ParticleVector rest =
+      applyProjection<VetoedFinalState>(event, "Rest").particles();
       
+      if(higgses.size()==0)
+        for (size_t i(0);i<rest.size();++i) {
+        if(rest[i].pid()==25){
+          // cout << " i= " << i << " PdgId= " << rest[i].pid() << endl;
+          higgses.push_back(rest[i]);
+          FourMomentum dummy_mom(0,0,0,0);
+          // cout << "before rest["<<i<<"].momentum()= " << rest[i].momentum() << " PdgId= " << rest[i].pid() << endl;
+          rest[i].setMomentum(dummy_mom);
+          // cout << "after rest["<<i<<"].momentum()= " << rest[i].momentum() << " PdgId= " << rest[i].pid() << endl;
+        }
+      }
+
       // only continue if a Z has been found
       if ( zll.empty() ) vetoEvent;
 
@@ -224,17 +256,14 @@ namespace Rivet {
       ///////////// END OF CHANNEL DEPENDENT PART
       ////////////////////////////////////////////////////////////////////////////////////////////
 
-      Jets ajets;
+      Jets ajets, sel_ajets;
       ajets.clear();
+      sel_ajets.clear();
       Jet h0, h1; 
       FourMomentum  higgs_candidate,Z, HV;
       std::vector<size_t> b_indices;
       int na = 0.0;
       int nb = 0.0;
-      // unstable higgs
-      const UnstableFinalState& undec_higgs = applyProjection<UnstableFinalState>(event, "UFS");
-      // jets
-      const FastJets& jetpro = applyProjection<FastJets>(event,"jetpro");
       const Jets alljets = jetpro.jetsByPt();
       // find all jets with bs
       for (size_t i = 0; i < alljets.size(); ++i) {
@@ -244,34 +273,42 @@ namespace Rivet {
         }
       }
 
-      // require at least to b jets or undecayed higgs
-      if (b_indices.size() < 2 && undec_higgs.size() == 0) vetoEvent;
+      // std::cout << "higgses.size()= "<< higgses.size() << " alljets.size()= "<< alljets.size() << " b_indices.size()= "<< b_indices.size() << " undec_higgs.size()= "<< undec_higgs.size() << std::endl;
+      // require at least 2 b jets or undecayed higgs
+      if (b_indices.size() < 2 && undec_higgs.size() == 0 && higgses.size() == 0) vetoEvent;
+      if (higgses.size()>1) vetoEvent;
+
       
       size_t idx0 = -1;
       size_t idx1 = -1;
-      if (b_indices.size() < 2){
-        higgs_is_undecayed = true;
-        higgs_candidate = undec_higgs.particles()[0];
-      }else{
-        // construct highest dijet pt b-jet pair if higgs is decayed
-        double max_pt = 0.0*GeV;
-        // pairwise iterate
-        for (size_t i = 0; i < b_indices.size()-1; ++i) {
-          for (size_t j = i+1; j < b_indices.size(); ++j) {
-            higgs_candidate = alljets[b_indices[i]].momentum() + alljets[b_indices[j]].momentum();
-            if (higgs_candidate.pT() > max_pt) {
-              max_pt = higgs_candidate.pT();
-              idx0 = b_indices[i];
-              idx1 = b_indices[j];
-            }
-          }
-        }
+      higgs_candidate = higgses[0].momentum();
+      // if (b_indices.size() < 2){
+        // higgs_is_undecayed = true;
+        // // higgs_candidate = undec_higgs.particles()[0];
+      // }else if(higgs_is_undecayed == false) {
+        // // construct highest dijet pt b-jet pair if higgs is decayed
+        // double max_pt = 0.0*GeV;
+        // // pairwise iterate
+        // for (size_t i = 0; i < b_indices.size()-1; ++i) {
+          // for (size_t j = i+1; j < b_indices.size(); ++j) {
+            // higgs_candidate = alljets[b_indices[i]].momentum() + alljets[b_indices[j]].momentum();
+            // if (higgs_candidate.pT() > max_pt) {
+              // max_pt = higgs_candidate.pT();
+              // idx0 = b_indices[i];
+              // idx1 = b_indices[j];
+            // }
+          // }
+        // }
 
-        h0 = alljets[idx0];
-        h1 = alljets[idx1];
-        // final highest pt dijet pair
-        higgs_candidate = h0.momentum() + h1.momentum();
-      }
+        // h0 = alljets[idx0];
+        // h1 = alljets[idx1];
+        // // final highest pt dijet pair
+        // higgs_candidate = h0.momentum() + h1.momentum();
+      // }
+      
+      // cout << "before veto: higgs_candidate.pT()= " << higgs_candidate.pT() << endl;
+      if( ! higgs_candidate.pT()>0 ) vetoEvent;
+
       Z = zll[0].momentum();
       
       Particles leptons = zmmfinder.bosons().size()>0 ? zmmfinder.constituents(cmpMomByPt) : zeefinder.constituents(cmpMomByPt);
@@ -287,7 +324,10 @@ namespace Rivet {
       for (size_t i = 0; i < alljets.size(); ++i) {
         if (i != idx0 && i != idx1){
           ajets.push_back(alljets[i]);
-          if (alljets[i].pT() > cut_addjets_ptmin && abs(alljets[i].eta()) < cut_addjets_etamax) na++;
+          if (alljets[i].pT() > cut_addjets_ptmin && abs(alljets[i].eta()) < cut_addjets_etamax){
+            na++;
+            sel_ajets.push_back(alljets[i]);
+          }
         }
       }
       
@@ -316,6 +356,12 @@ namespace Rivet {
           _h_VptInc_AjetInc__ajets_eta[i]->fill(ajets[i].eta(),weight);
         }
       }
+      for (size_t iajet=0; iajet < 1; iajet++){
+        if(sel_ajets.size()>0){
+          _h_VptInc_AjetInc__Sel_ajets_pT[iajet]->fill(sel_ajets[0].pT(),weight);
+          _h_VptInc_AjetInc__Sel_ajets_eta[iajet]->fill(sel_ajets[0].eta(),weight);
+        }
+      }
       for (size_t ivpt=0; ivpt < 1; ivpt++){
         for (size_t iajet=0; iajet < 1; iajet++){
           if(!higgs_is_undecayed){
@@ -329,6 +375,7 @@ namespace Rivet {
           }
           _h__weights[ivpt][iajet]->fill(weight/(std::abs(weight)>0?std::abs(weight):1));
           
+          
           _h__V_mass[ivpt][iajet]->fill(Z.mass(),weight);
           _h__V_rap[ivpt][iajet]->fill(Z.rapidity(),weight);
           _h__V_pT[ivpt][iajet]->fill(Z.pT(),weight);
@@ -338,8 +385,8 @@ namespace Rivet {
           _h__HV_rap[ivpt][iajet]->fill(HV.rapidity(),weight);
           _h__HV_pT[ivpt][iajet]->fill(HV.pT(),weight);
 
-          _h__najets[ivpt][iajet]->fill(na,weight);
-          _h__nbjets[ivpt][iajet]->fill(nb,weight);
+          _h__Sel_najets[ivpt][iajet]->fill(na,weight);
+          _h__Sel_nbjets[ivpt][iajet]->fill(nb,weight);
 
           _h__dR_HV[ivpt][iajet]->fill(deltaR(higgs_candidate,Z),weight);
           _h__deta_HV[ivpt][iajet]->fill(deltaEta(higgs_candidate,Z),weight);
@@ -350,12 +397,21 @@ namespace Rivet {
       /// Loop over pT bins, jet bins
       //////////////////////////////////////////////////
       for (size_t ivpt=0; ivpt < Vpt_bins; ivpt++){
-          
+        
+        // std::cout << "Z.pT()= "<< Z.pT() << std::endl;
+     
         if(Z.pT() < cut_Zll_pt_low_edge_bin[ivpt] || Z.pT() > cut_Zll_pt_high_edge_bin[ivpt]) continue;
           
         for (size_t iajet=0; iajet < NJet_bins; iajet++){
 
-          if(ajets.size() < cut_najets_low_edge_bin[iajet] || ajets.size() >= cut_najets_high_edge_bin[iajet]) continue;
+          // std::cout << "sel_ajets.size()= "<< sel_ajets.size() << std::endl;
+          if(sel_ajets.size() < cut_najets_low_edge_bin[iajet] || sel_ajets.size() >= cut_najets_high_edge_bin[iajet]) continue;
+          
+          // std::cout 
+          // << "leadlep.pT()= "<< leadlep.pT() << " leadlep.eta()= "<< leadlep.eta() 
+          // << " subleadlep.pT()= "<< subleadlep.pT() << " subleadlep.eta()= "<< subleadlep.eta() 
+          // << " higgs_candidate.pT()= "<< higgs_candidate.pT() << " higgs_candidate.rapidity()= "<< higgs_candidate.rapidity() 
+          // << std::endl;
           
           _h__leadlep_pT[ivpt][iajet]->fill(leadlep.pT(),weight);
           _h__leadlep_eta[ivpt][iajet]->fill(leadlep.eta(),weight);
@@ -377,6 +433,9 @@ namespace Rivet {
         scale(_h_VptInc_AjetInc__ajets_pT[i], crossSection()/sumOfWeights());
         scale(_h_VptInc_AjetInc__ajets_eta[i], crossSection()/sumOfWeights());
       }
+      
+      scale(_h_VptInc_AjetInc__Sel_ajets_pT[0], crossSection()/sumOfWeights());
+      scale(_h_VptInc_AjetInc__Sel_ajets_eta[0], crossSection()/sumOfWeights());
 
       for (size_t ivpt=0; ivpt < 1; ivpt++){
         for (size_t iajet=0; iajet < 1; iajet++){
@@ -402,8 +461,8 @@ namespace Rivet {
           scale(_h__deta_HV[ivpt][iajet], crossSection()/sumOfWeights());
           scale(_h__dphi_HV[ivpt][iajet], crossSection()/sumOfWeights());
 
-          scale(_h__najets[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__nbjets[ivpt][iajet], crossSection()/sumOfWeights());
+          scale(_h__Sel_najets[ivpt][iajet], crossSection()/sumOfWeights());
+          scale(_h__Sel_nbjets[ivpt][iajet], crossSection()/sumOfWeights());
         }
       }
       
