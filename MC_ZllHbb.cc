@@ -227,7 +227,7 @@ namespace Rivet {
       const ZFinder& zmmfinder = applyProjection<ZFinder>(event, "zmmfinder");
       const Particles zll = zeefinder.bosons() + zmmfinder.bosons();
       // bool higgs_is_undecayed = false;
-      bool higgs_is_undecayed = true;
+      // bool higgs_is_undecayed = true;
       ParticleVector higgses =
       applyProjection<IdentifiedFinalState>(event, "Higgses").particles();
       // unstable higgs
@@ -316,6 +316,16 @@ namespace Rivet {
       // const FourMomentum lplus = leptons[0].charge() < 0 ? leptons[1].momentum() : leptons[0].momentum();      
       const FourMomentum leadlep = leptons[0].momentum();
       const FourMomentum subleadlep = leptons[1].momentum();
+      
+      if ( 
+             leadlep.pT() < cut_lepton_ptmin 
+          || leadlep.eta() < cut_lepton_etamin 
+          || leadlep.eta() > cut_lepton_etamax 
+          || subleadlep.pT() < cut_lepton_ptmin 
+          || subleadlep.eta() < cut_lepton_etamin 
+          || subleadlep.eta() > cut_lepton_etamax 
+          ) 
+          vetoEvent;
 
       // HV system
       HV = higgs_candidate + Z;
