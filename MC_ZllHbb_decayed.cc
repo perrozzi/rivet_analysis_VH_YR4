@@ -209,7 +209,7 @@ namespace Rivet {
       ajets.clear();
       sel_ajets.clear();
       Jet h0, h1; 
-      FourMomentum  higgs_candidate,Z, HV;
+      FourMomentum  higgs_candidate,Z, HV, dijet;
       std::vector<size_t> b_indices;
       int na = 0.0;
       int nb = 0.0;
@@ -253,11 +253,8 @@ namespace Rivet {
       if (b_indices.size() < 2 && undec_higgs.size() == 0 && higgses.size() == 0) vetoEvent;
       if (higgses.size()>1) vetoEvent;
 
-      
-      size_t idx0 = -1;
-      size_t idx1 = -1;
       // higgs_candidate = higgses[0].momentum();
-      higgs_candidate = dijet.momentum();
+      higgs_candidate = dijet;
       
       // cout << "before veto: higgs_candidate.pT()= " << higgs_candidate.pT() << endl;
       if( ! higgs_candidate.pT()>0 ) vetoEvent;
