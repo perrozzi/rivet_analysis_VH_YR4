@@ -5,7 +5,7 @@ namespace Rivet {
 
   using namespace Cuts;
 
-  class MC_ZllHbb : public Analysis {
+  class MC_ZllHbb_decayed : public Analysis {
 
   private:
 
@@ -13,8 +13,8 @@ namespace Rivet {
   public:
 
     /// Constructor
-    MC_ZllHbb()
-    : Analysis("MC_ZllHbb")
+    MC_ZllHbb_decayed()
+    : Analysis("MC_ZllHbb_decayed")
     {    
     }
 
@@ -426,6 +426,6 @@ namespace Rivet {
 
   };
 
-  DECLARE_RIVET_PLUGIN(MC_ZllHbb);
+  DECLARE_RIVET_PLUGIN(MC_ZllHbb_decayed);
 
 }

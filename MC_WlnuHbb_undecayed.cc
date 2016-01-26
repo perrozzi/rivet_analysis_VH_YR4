@@ -5,7 +5,7 @@ namespace Rivet {
 
   using namespace Cuts;
 
-  class MC_WlnuHbb : public Analysis {
+  class MC_WlnuHbb_undecayed : public Analysis {
 
   private:
 
@@ -13,8 +13,8 @@ namespace Rivet {
   public:
 
     /// Constructor
-    MC_WlnuHbb()
-    : Analysis("MC_WlnuHbb")
+    MC_WlnuHbb_undecayed()
+    : Analysis("MC_WlnuHbb_undecayed")
     {    
     }
 
@@ -404,6 +404,6 @@ namespace Rivet {
 
   };
 
-  DECLARE_RIVET_PLUGIN(MC_WlnuHbb);
+  DECLARE_RIVET_PLUGIN(MC_WlnuHbb_undecayed);
 
 }
