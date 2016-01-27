@@ -199,6 +199,7 @@ namespace Rivet {
       }
 
       // only continue if a Z has been found
+      // cout << "zll.size()= " << zll.size() << endl;
       if ( zll.empty() ) vetoEvent;
 
       ////////////////////////////////////////////////////////////////////////////////////////////
@@ -215,14 +216,23 @@ namespace Rivet {
       int nb = 0.0;
       const Jets alljets = jetpro.jetsByPt();
       // find all jets with bs
+      // cout << "alljets.size()= " << alljets.size() << endl;
       for (size_t i = 0; i < alljets.size(); ++i) {
         if (alljets[i].containsBottom()) {
+          // cout << "alljets["<<i<<"].containsBottom()= " << alljets[i].containsBottom() 
+               // << " pT()= " << alljets[i].pT() 
+               // << " eta()= " << alljets[i].eta() 
+               // << endl;
           if (alljets[i].pT() > cut_bjets_ptmin && abs(alljets[i].eta()) < cut_bjets_etamax){
+            // cout << "passing cut_bjets_ptmin= " << cut_bjets_ptmin << " cut_bjets_etamax= " << cut_bjets_etamax << endl;
             nb++;
             b_indices.push_back(i);
           }
         }
       }
+
+      // cout << "b_indices.size()= " <<b_indices.size() << endl;
+      // std::cout << "higgses.size()= "<< higgses.size() << " undec_higgs.size()= "<< undec_higgs.size() << std::endl;
 
       // require at least to b jets
       if (b_indices.size() < 2) vetoEvent;
