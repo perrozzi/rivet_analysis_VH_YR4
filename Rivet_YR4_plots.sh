@@ -1,8 +1,9 @@
 #!/bin/bash
 
-cd /afs/cern.ch/work/p/perrozzi/private/git/Hbb/validations/CMSSW_7_4_1_patch4/src/
-eval `scramv1 runtime -sh`
-cd -
+# load environment variables
+# cd /afs/cern.ch/work/p/perrozzi/private/git/Hbb/validations/CMSSW_7_4_1_patch4/src/
+# eval `scramv1 runtime -sh`
+# cd -
 
 # PATHS and DIRECTORIES
 
