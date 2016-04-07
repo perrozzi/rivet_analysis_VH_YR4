@@ -361,43 +361,43 @@ namespace Rivet {
     void finalize() {
 
       for (size_t i = 0; i < njets; ++i) {
-        scale(_h_VptInc_AjetInc__log10_d[i], crossSection()/sumOfWeights());
-        scale(_h_VptInc_AjetInc__ajets_pT[i], crossSection()/sumOfWeights());
-        scale(_h_VptInc_AjetInc__ajets_eta[i], crossSection()/sumOfWeights());
+        scale(_h_VptInc_AjetInc__log10_d[i], /*crossSection()*/ 1./sumOfWeights());
+        scale(_h_VptInc_AjetInc__ajets_pT[i], /*crossSection()*/ 1./sumOfWeights());
+        scale(_h_VptInc_AjetInc__ajets_eta[i], /*crossSection()*/ 1./sumOfWeights());
       }
       
-      scale(_h_VptInc_AjetInc__Sel_ajets_pT[0], crossSection()/sumOfWeights());
-      scale(_h_VptInc_AjetInc__Sel_ajets_eta[0], crossSection()/sumOfWeights());
+      scale(_h_VptInc_AjetInc__Sel_ajets_pT[0], /*crossSection()*/ 1./sumOfWeights());
+      scale(_h_VptInc_AjetInc__Sel_ajets_eta[0], /*crossSection()*/ 1./sumOfWeights());
 
       for (size_t ivpt=0; ivpt < 1; ivpt++){
         for (size_t iajet=0; iajet < 1; iajet++){
                     
-          scale(_h__V_mass[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__V_rap[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__V_pT[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__higgs_candidate_mass[ivpt][iajet], crossSection()/sumOfWeights());
+          scale(_h__V_mass[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__V_rap[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__V_pT[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__higgs_candidate_mass[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
           
-          scale(_h__HV_pT[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__HV_rap[ivpt][iajet], crossSection()/sumOfWeights());
+          scale(_h__HV_pT[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__HV_rap[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
 
-          scale(_h__dR_HV[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__deta_HV[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__dphi_HV[ivpt][iajet], crossSection()/sumOfWeights());
+          scale(_h__dR_HV[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__deta_HV[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__dphi_HV[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
 
-          scale(_h__Sel_najets[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__Sel_nbjets[ivpt][iajet], crossSection()/sumOfWeights());
+          scale(_h__Sel_najets[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__Sel_nbjets[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
         }
       }
       
       for (size_t ivpt=0; ivpt < Vpt_bins; ivpt++){
         for (size_t iajet=0; iajet < NJet_bins; iajet++){
 
-          scale(_h__higgs_candidate_rap[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__higgs_candidate_pT[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__leadlep_pT[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__leadlep_eta[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__subleadlep_pT[ivpt][iajet], crossSection()/sumOfWeights());
-          scale(_h__subleadlep_eta[ivpt][iajet], crossSection()/sumOfWeights());
+          scale(_h__higgs_candidate_rap[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__higgs_candidate_pT[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__leadlep_pT[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__leadlep_eta[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__subleadlep_pT[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
+          scale(_h__subleadlep_eta[ivpt][iajet], /*crossSection()*/ 1./sumOfWeights());
         }
       }
     }
