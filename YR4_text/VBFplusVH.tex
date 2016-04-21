@@ -1,0 +1,2000 @@
+\providecommand{\muR}{\mathswitch {\mu_{\mathrm{R}}}}
+\providecommand{\muF}{\mathswitch {\mu_{\mathrm{F}}}}
+\providecommand\DY{\mathrm{DY}}
+\providecommand\DIS{\mathrm{DIS}}
+\providecommand\VBF{\mathrm{VBF}}
+\providecommand\NLL{\mathrm{NLL}}
+\providecommand\VH{\mathrm{VH}}
+\providecommand\WH{\mathrm{WH}}
+\providecommand\ZH{\mathrm{ZH}}
+\providecommand\ELWK{\mathrm{EW}}
+\providecommand\HAWK{{\sc HAWK}}
+\providecommand\MCFM{{\sc MCFM}}
+\providecommand\VBFNLO{{\sc VBFNLO}}
+\providecommand\VHNNLO{{\sc VH@NNLO}}
+\providecommand\vhnnlo{{\sc VHNNLO}}
+\providecommand\POWHEG{{\sc POWHEG}}
+\providecommand\POWHEGBOX{{\sc POWHEG BOX}}
+\providecommand\HERWIG{{\sc HERWIG}}
+\providecommand\PYTHIA{{\sc PYTHIA}}
+\providecommand\HDECAY{{\sc HDECAY}}
+\providecommand{\kT}{\ensuremath{k\sb{\scriptstyle\mathrm{T}}}}
+\providecommand\NNLOPS{{\sc NNLOPS}}
+\providecommand\HVNNLO{{\sc HVNNLO}} 
+\providecommand{\HVNNLOPS}{{\sc HVNNLOPS}} 
+\providecommand{\HWJMINLOPS}{{\sc HWJ-MiNLO (Pythia8+hadr)}}
+\providecommand{\HWNNLOPS}{{\sc HW-NNLOPS (Pythia8+hadr)}}
+\providecommand{\HWNNLOPSshort}{{\sc HW-NNLOPS}}
+\providecommand\DYNNLOPS{{\sc DYNNLOPS}}
+\providecommand\MINLO{{\sc MiNLO}}
+\providecommand\HWJMINLO{{\sc HWJ-MiNLO}}
+\providecommand\FASTJET{{\sc FastJet}}
+\providecommand\HNNLOPS{{\sc HNNLOPS}}
+\providecommand\HW{{\sc HW}}
+\providecommand\PhiHW{\Phi_{\scriptscriptstyle HW^*}} 
+\providecommand\PhiHWsimp{\Phi_{\scriptscriptstyle HW}} 
+\providecommand\thetacs{\theta^*}
+\providecommand\phics{\phi^*}
+
+\providecommand\ptw{p_{\scriptscriptstyle \mathrm{T,W}}}
+\providecommand\ptwh{p_{\scriptscriptstyle \mathrm{T,HW}}}
+\providecommand\ptjone{p_{\scriptscriptstyle
+    \mathrm{T,j_{1}}}}
+\providecommand\yjone{y_{\scriptscriptstyle
+    \mathrm{j_{1}}}}
+
+\providecommand\yh{y_{\scriptscriptstyle \mathrm{H}}}
+\providecommand\ptw{p_{\scriptscriptstyle \mathrm{T,W}}}
+
+
+\clearpage
+
+\chapter{VBF and VH\footnote{%
+S.~Dittmaier, P.~Govoni, B.~J\"ager, J.~Nielsen, L.~Perrozzi, E.~Pianori, A.~Rizzi, F.~Tramontano (eds.):
+W.A.~Astill, J.~Bellm, W.J.~Bizon, F.~Campanario, J.~Campbell, A.~Denner, F.A.~Dreyer,
+R.K.~Ellis, G.~Ferrera, T.~Figy, M.~Grazzini,
+R.~Harlander, S.~Kallweit, A.~Karlberg, A.~Kulesza, A.~M\"uck, S.~Pl\"atzer, E.~Re, G.P.~Salam,
+P.~Schichtel, M.~Sj\"odahl, V.~Theeuwes, C.~Williams, G.~Zanderighi, M.~Zaro, T.~Zirke.}
+}
+\label{chap:VBF+VH}
+
+The production of a Standard Model Higgs boson in association with two hard
+jets in the forward and backward regions of the detector, frequently quoted
+as the ``vector-boson fusion''~(VBF) channel, 
+and the production of a Higgs boson in association with a W or Z~boson,
+known as ``VH production'' or ``Higgs-strahlung'',
+represent cornerstones in a comprehensive study of 
+Higgs-boson couplings at the LHC. 
+These production channels do not only provide valuable information on 
+the couplings of Higgs bosons to the massive gauge bosons by themselves, but
+also allow for the isolation of the Higgs-boson decays into
+$\tau$-lepton or bottom-quark pairs, whose investigation is essential in
+the Higgs couplings analysis.
+
+In the previous reports~\cite{Dittmaier:2011ti,Dittmaier:2012vm,Heinemeyer:2013tqa}, 
+state-of-the-art predictions and error estimates for the total and differential
+cross sections for $\Pp\Pp\to\PH+ 2\,\mathrm{jets}$ and 
+$\Pp\Pp\to\PH\PW/\PZ\to \PH+2\,$leptons were compiled, but the process of improving and
+refining predictions is still ongoing, even within the Standard Model.
+In this contribution we update the cross-section predictions for 
+VBF and VH production, covering integrated total and fiducial cross sections
+as well as differential distributions.
+In detail, the presented state-of-the-art predictions include QCD corrections
+up to next-to-next-to-leading order (NNLO), electroweak (EW) corrections
+up to next-to-leading order (NLO), and contributions from specific partonic channels
+that open at higher perturbative orders, such as photon-induced collisions or
+gluon-fusion contributions. 
+Apart from collecting numerical results, we give recommendations as to how to
+combine the individual components and to assess conservative estimates of
+remaining theoretical uncertainties.
+Moreover, issues connected to the matching and the impact of parton
+showers (PS) are discussed.
+
+
+\section{VBF cross-section predictions}
+\label{sec:VBF-XS}
+
+\subsection{Programs and tools for VBF}
+
+\subsubsection{HAWK}
+\label{sec:HAWK-VBF-sub-sub}
+
+\HAWK{}~\cite{Denner:2014cla,HAWK} 
+is a parton-level event generator for Higgs production in
+vector-boson fusion~\cite{Ciccolini:2007jr, Ciccolini:2007ec},
+$\Pp\Pp\to\PH+2\,\mathrm{jets}$, and Higgs-strahlung \cite{Denner:2011id},
+$\Pp\Pp\to\PH\PW/\PZ\to \PH+2\,$leptons.
+Here we summarise its most important features for the VBF channel. 
+
+\HAWK{}
+includes the complete NLO QCD and EW corrections and all weak-boson
+fusion and quark--antiquark annihilation diagrams, i.e.~$t$-channel
+and $u$-channel diagrams with VBF-like vector-boson exchange and
+$s$-channel Higgs-strahlung diagrams with hadronic weak-boson decay,
+as well as all interferences. 
+\HAWK{} allows for an on-shell Higgs boson or for an off-shell Higgs
+boson (with optional decay into a pair of gauge singlets).
+The EW corrections include also the contributions from photon-induced
+channels, but contributions from effective Higgs--gluon couplings,
+which are part of the QCD corrections to Higgs production via
+gluon fusion,
+are not taken into account.
+External fermion masses are neglected
+and the renormalisation and factorisation scales are set to $\MW$ by
+default. Since version 2.0, \HAWK{} includes
+anomalous Higgs-boson--vector-boson couplings.
+Further features of \HAWK{} are described in \Bref{Denner:2014cla}
+and on its web page~\cite{HAWK}.
+
+\subsubsection{MadGraph5\_aMC@NLO}
+\label{sec:aMCNLO-sub-sub-VBF}
+
+Higgs production through VBF, possibly in association with extra jets,
+can be generated automatically in {\sc MadGraph5\_aMC@NLO}, and is thus 
+exactly on the same footing as any other generic process.
+A phenomenology study of H+2jet VBF production has been presented in
+\Bref{Frixione:2013mta}, where NLO QCD results matched to different parton
+showers (\HERWIG6, \HERWIG++ and virtuality-ordered \PYTHIA6) have been compared
+to fixed-order NLO predictions and the corresponding \POWHEG-matched
+ones. Predictions for VBF matched to \PYTHIA8 have been successively presented
+in \Bref{Alwall:2014hca}.  The code for simulating VBF Higgs production
+at the NLO(+PS) accuracy can be generated and run via the commands
+\begin{verbatim}
+generate p p > h j j $$ w+ w- z [QCD]
+output VBF-MG5_aMC
+launch
+\end{verbatim}
+where the \$\$ syntax forbids $s$-channel $\PW$ and $\PZ$ bosons. 
+Virtual corrections featuring electroweak bosons in the loop (pentagons) are not included when using the above command lines. Note that diagrams of this class are either zero, or negligible for all practical purposes.%
+\footnote{For this reason, the internal check of pole cancellation fails. 
+In order to disable these checks, the parameters \texttt{IRPoleCheckThreshold} 
+and \texttt{PrecisionVirtualAtRunTime} inside \texttt{Cards/FKS\_params.dat} must be set to -1.}  
+As the default
+Standard Model in {\sc MadGraph5\_aMC@NLO} assumes a non-vanishing bottom mass, no
+$\PQb$~quark is included in the definition of the \Pp\ and j multiparticles. In
+order to include $\PQb$ quarks, it is sufficient to load the `loop\_sm-no\_b\_mass`
+model before generating the code, with the command
+\begin{verbatim}
+import model loop_sm-no_b_mass
+\end{verbatim}
+In both cases, a $V_{CKM}=1$ is assumed and the Higgs boson is kept on its
+mass shell.\\ 
+For what concerns Higgs plus three jets production in VBF,
+predictions for the third and the veto jet at NLO+PS accuracy have been
+presented in \Bref{Alwall:2014hca}, considering $t$-channel modes
+only. The relevant code can be generated and executed with the commands
+\begin{verbatim}
+generate p p > h j j j $$ w+ w- z [QCD]
+output VBF-MG5_aMC
+launch
+\end{verbatim}
+
+\subsubsection{POWHEG}
+\label{sec:POWHEG-sub-sub}
+
+The \POWHEGBOX\ is a program package that allows for the matching of
+NLO QCD calculations with parton-shower generators using the \POWHEG\
+method. VBF-induced Higgs production has been implemented in the
+\POWHEGBOX\ in the factorized approximation, where cross-talk between
+the fermion lines is neglected, in Ref.~\cite{Nason:2009ai}.  More
+recently, also an implementation of Higgs production in association
+with three jets via VBF, based on the NLO QCD calculation of
+Ref.~\cite{Figy:2007kv}, has become available~\cite{Jager:2014vna}.
+
+Both implementations are based on the respective NLO QCD calculations for genuine weak-boson fusion topologies, i.e.\ the VBF approximation. 
+Quark--antiquark annihilation and interference contributions between $t$- and $u$-channel contributions are disregarded. 
+The CKM matrix elements can be assigned by the user. External fermion masses are neglected throughout. 
+For the choice of renormalization and factorization scales, various options are available. 
+For this report, fixed scales, $\muF=\muR=\MW$, are used, and contributions from external bottom and top quarks are entirely disregarded.  
+
+\subsubsection{proVBFH}
+{\tt proVBFH} is a parton-level Monte Carlo program for the
+calculation of differential distributions for VBF Higgs production to
+NNLO QCD accuracy.
+%
+It is based on \POWHEG's fully differential NLO QCD calculation for
+Higgs production in association with three jets via
+VBF~\cite{Figy:2007kv,Jager:2014vna}, and an inclusive NNLO QCD
+calculation~\cite{Bolzoni:2010xr}, both taken in the
+structure-function approximation, which are combined using the
+projection-to-Born method described in Ref.~\cite{Cacciari:2015jma}.
+
+{\tt proVBFH} uses a diagonal CKM matrix, Breit--Wigner distributions
+for the W and Z bosons, and neglects fermion masses.
+%
+It is based on the structure-function approach, which assumes that
+there is no cross-talk between the upper and lower hadronic sectors.
+%
+For this report, the factorisation and renormalisation scales are set
+to the W-boson mass, $\muR = \muF = \MW$.
+
+\subsubsection{VBFNLO}
+\label{sec:VBFNLO-sub-sub}
+
+\VBFNLO~\cite{Arnold:2008rz} is a parton-level Monte Carlo generator for the simulation of various processes 
+with weak bosons at NLO QCD accuracy. In particular, Higgs production in association with two~\cite{Figy:2003nv} 
+or three jets~\cite{Figy:2007kv} via VBF is implemented with different options for the decays of the Higgs boson. 
+For VBF Higgs production in association with two jets, in addition to the default SM implementation, 
+options are available for the inclusion of anomalous coupling effects~\cite{Hankele:2006ma} and 
+VBF Higgs production in the context of the MSSM~\cite{Figy:2010ct}. NLO EW corrections to VBF can also be computed~\cite{Figy:2010ct}.   
+Quark--antiquark annihilation and interference contributions between $t$- and $u$-channel contributions are 
+not taken into account. In the following we will refer to this setup as ``VBF approximation''. 
+
+
+\subsubsection{VBF@NNLO}
+\label{sec:VBFNNLO-sub-sub}
+
+{\sc VBF@NNLO}~\cite{Bolzoni:2010xr,Bolzoni:2011cu} computes VBF total Higgs cross sections
+at LO, NLO, and NNLO in QCD via the structure-function approach.  This
+approach~\cite{Han:1992hr} consists  in considering VBF process as a
+double deep-inelastic scattering (DIS) attached to the colourless pure
+electroweak vector-boson fusion into a Higgs boson.  According to this
+approach one can include NLO QCD corrections to the VBF process employing the
+standard DIS structure functions $F_i(x,Q^2);\,i=1,2,3$ at
+NLO~\cite{Bardeen:1978yd} or similarly the corresponding structure functions
+at NNLO~\cite{Kazakov:1990fu,Zijlstra:1992kj,Zijlstra:1992qd,Moch:1999eb}.
+
+The effective factorisation underlying the structure-function approach does not include all types of contributions.
+At LO an additional contribution arises from the
+interferences between identical final-state quarks (e.g.,\
+$\PQu\PQu\rightarrow \PH\PQu\PQu$) or between processes where either a $\PW$
+or a $\PZ$ can be exchanged (e.g.,\ $\PQu\PQd\rightarrow \PH\PQu\PQd$).  These
+LO contributions have been added to the NNLO results presented here, even if they are very small.
+Apart from such contributions, the structure-function approach is exact also at NLO.
+At NNLO, however, several types of diagrams violate the underlying factorisation.
+Their impact on the total rate has been computed or estimated in~\Bref{Bolzoni:2011cu} and found to be negligible.
+Some of them are colour suppressed and kinematically
+suppressed~\cite{vanNeerven:1984ak,Blumlein:1992eh,Figy:2007kv}, others have
+been shown in \Bref{Harlander:2008xn} to be small enough not to produce
+a significant deterioration of the VBF signal.
+
+At NNLO QCD, the theoretical QCD uncertainty is reduced to less than
+$2\%$. Electroweak corrections, which are at the level of $5\%$, are
+not included in {\sc VBF@NNLO}.
+%
+The Higgs boson can either be produced on its mass-shell, or off-shell effects can be included in the
+complex-pole scheme.
+
+
+\subsection{VBF parameters and cuts}
+\label{sec:VBFcuts-sub}
+
+The numerical results presented in the next section have been
+computed using the values of the EW parameters given in \Sref{chapter:input}.
+The electromagnetic coupling is fixed in the
+$\GF$ scheme, 
+\beq
+ \alpha_{\GF} = \sqrt{2}\GF\MW^2(1-\MW^2/\MZ^2)/\pi,
+\eeq
+and the weak mixing angle, $\theta_{\mathrm{w}}$, is defined in the on-shell scheme,
+\begin{equation}
+\sw^2\equiv\sin^2\theta_{\mathrm{w}}=1-\MW^2/\MZ^2.
+\end{equation}
+The renormalisation and factorisation scales are set equal to the
+$\PW$-boson mass,
+\begin{equation}
+\label{eq:VBF_ren_fac_scales}
+\mu = \muR = \muF= \MW,
+\end{equation}
+and both scales are varied in the range $\MW/2 < \mu < 2\MW$ keeping $\muF=\muR$,
+which catches the full scale uncertainty of integrated cross sections
+(and of differential distributions in the essential regions).
+
+In the calculation of the QCD-based cross sections, we have used the
+PDF4LHC15\_nnlo\_100 PDFs~\cite{Butterworth:2015oua}, for the calculation of the EW corrections we have employed
+the NNPDF2.3QED PDF set~\cite{Ball:2013hta}, which includes a photon PDF. 
+%since it is the only up-to-date PDF set 
+%with EW corrections and thus with a photon PDF in particular.
+%
+Note, however, that the relative EW correction factor, which is used in the following,
+hardly depends on the PDF set, so that the uncertainty due to the
+mismatch in the PDF selection is easily covered by the other remaining
+theoretical uncertainties.
+
+For the fiducial cross section and for 
+differential distributions the following reconstruction scheme
+and cuts have been applied.
+Jets are constructed according to the anti-$\kT$ algorithm~\cite{Cacciari:2008gp} with
+$D=0.4$, using the default
+recombination scheme ($E$ scheme).  Jets are constructed from partons $j$ with
+\begin{equation}
+\label{eq:VBF_cuts1}
+|\eta_j| < 5\,,
+\end{equation}
+where $\eta_j$ denotes the pseudo-rapidity.  Real photons, which
+appear as part of the EW corrections, are an input to the jet
+clustering in the same way as partons.  
+Thus, in real photon radiation events, final states may consist of jets
+only or jets plus a real identifiable photon, depending on whether 
+the photon was merged into a jet or not, respectively. 
+Both events with and without isolated photons are kept.
+
+Jets are ordered according to their $\pT$ in decreasing
+progression. The jet with highest $\pT$ is called leading jet $(j_1)$, the
+one with next highest $\pT$ subleading jet $(j_2)$, and both are the tagging
+jets.  Only events with at least two jets are kept.  They must satisfy
+the additional constraints
+%
+\begin{equation}
+\label{eq:VBF_cuts2}
+{\pT}_j > 20\UGeV, \qquad 
+|y_j| < 5, \qquad 
+|y_{j_1} - y_{j_2}| > 3\,, \qquad M_{jj} > 130\UGeV,
+\end{equation}
+where $y_{j_{1,2}}$ are the rapidities of the two leading jets.
+The cut on the 2-jet invariant mass $M_{jj}$ is sufficient to suppress
+the contribution of $s$-channel diagrams to the VBF cross section
+to the level of $1{-}2\%$, so that the DIS approximation of
+taking into account only $t$- and $u$-channel contributions is justified.
+In the cross sections given below, the $s$-channel contributions will be given
+for reference, although they are not included in the final VBF cross sections
+by default.
+
+While the VBF cross sections in the DIS approximation are independent
+of the CKM matrix, quark mixing has some effect on $s$-channel contributions.
+For the calculation of the latter we employed a Cabbibo-like CKM matrix
+(i.e.\ without mixing to the third quark generation) with Cabbibo angle,
+$\theta_{\mathrm{C}}$, fixed by $\sin\theta_{\mathrm{C}}=0.225$.
+Moreover, we note that we employ complex W- and Z-boson masses in the
+calculation of $s$-channel and EW corrections in the standard \HAWK{} approach, 
+as described in 
+\Brefs{Ciccolini:2007jr, Ciccolini:2007ec}.
+
+The Higgs boson is treated as on-shell particle in the following consistently,
+since its finite-width and off-shell effects in the signal region are
+suppressed in the SM.
+
+\subsection{Integrated VBF cross sections}
+\label{subsec:VBF-XS}
+
+The final VBF cross section $\sigma^{\VBF}$ is calculated according to:
+\begin{equation}
+\sigma^{\VBF} = \sigma_{\NNLO \QCD}^{\DIS} (1+\delta_{\ELWK}) + \sigma_{\gamma},
+\label{eq:sigmaVBF}
+\end{equation}
+where $\sigma_{\NNLO \QCD}^{\DIS}$ is the NNLO QCD prediction for the
+VBF cross section in DIS approximation, based on the calculation
+of \Bref{Cacciari:2015jma} with PDF4LHC15\_nnlo\_100 PDFs.  The
+relative NLO EW correction $\delta_{\ELWK}$ is calculated with
+\HAWK{}, but taking into account only $t$- and $u$-channel diagrams
+corresponding to the DIS approximation.  The contributions from
+photon-induced channels, $\sigma_{\gamma}$, and from $s$-channel
+diagrams, $\sigma_{\mbox{\scriptsize $s$-channel}}$ are obtained from
+\HAWK{} as well, where the latter includes NLO QCD and EW corrections.
+To obtain $\sigma^{\VBF}$, the photon-induced contribution is added
+linearly, but $\sigma_{\mbox{\scriptsize $s$-channel}}$ is left out
+and only shown for reference, since it is not of true VBF origin (like
+other contributions such as H+2jet production via gluon fusion).  
+
+Tables~\ref{tab:vbf_XStot} and \ref{tab:vbf_XSfiducial} summarize the total and
+fiducial Standard Model VBF cross sections and the corresponding uncertainties
+for the different proton--proton collision energies
+for a Higgs-boson mass $\MH=125\UGeV$.
+\begin{table}
+\caption{Total VBF cross sections including QCD and EW corrections
+and their uncertainties for different proton--proton collision energies
+$\sqrt{s}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:vbf_XStot}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{ccccccc|c}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma^{\VBF}$[fb] & $\Delta_{\mathrm{scale}}$[\%] & 
+$\Delta_{\mathrm{PDF}/\alphas/\mathrm{PDF\oplus\alphas}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DIS}$[fb] & $\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb] & $\sigma_{\mbox{\scriptsize $s$-channel}}$[fb]
+\\
+\hline
+$7$  & $1241.4(1)$ &$^{+0.19}_{-0.21}$ &$\pm 2.1/\pm 0.4/\pm2.2$ &$1281.1(1)$ & $-4.4$ & $17.1$ & $584.5(3)$
+\\
+$8$  & $1601.2(1)$ &$^{+0.25}_{-0.24}$ &$\pm 2.1/\pm 0.4/\pm2.2$ &$1655.8(1)$ & $-4.6$ & $22.1$ & $710.4(3)$
+\\
+$13$ & $3781.7(1)$ &$^{+0.43}_{-0.33}$ &$\pm 2.1/\pm 0.5/\pm2.1$ &$3939.2(1)$ & $-5.3$ & $51.9$ & $1378.1(6)$
+\\
+$14$ & $4277.7(2)$ &$^{+0.45}_{-0.34}$ &$\pm 2.1/\pm 0.5/\pm2.1$ &$4460.9(2)$ & $-5.4$ & $58.5$ & $1515.9(6)$
+\\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\vspace{2em}
+\caption{Fiducial VBF cross sections including QCD and EW corrections
+and their uncertainties for different proton--proton collision energies
+$\sqrt{s}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:vbf_XSfiducial}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{ccccccc|c}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma^{\VBF}$[fb] & $\Delta_{\mathrm{scale}}$[\%] & 
+$\Delta_{\mathrm{PDF}/\alphas/\mathrm{PDF\oplus\alphas}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DIS}$[fb] & $\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb] & $\sigma_{\mbox{\scriptsize $s$-channel}}$[fb]
+\\
+\hline
+$7$  & $602.4(5)$ &$^{+1.3}_{-1.6}$ &$\pm 2.3/\pm 0.3/\pm2.3$ & $630.8(5)$ & $-6.1$ &  $9.9$ & $8.2$
+\\
+$8$  & $795.9(6)$ &$^{+1.3}_{-1.5}$ &$\pm 2.3/\pm 0.3/\pm2.3$ & $834.8(7)$ & $-6.2$ & $13.1$ & $11.1$
+\\
+$13$ & $1975.4(9)$ &$^{+1.3}_{-1.2}$ &$\pm 2.1/\pm 0.4/\pm2.2$ & $2084.2(10)$ & $-6.8$ & $32.3$ & $29.0$
+\\
+$14$ & $2236.6(26)$ &$^{+1.5}_{-1.3}$ &$\pm 2.1/\pm 0.4/\pm2.1$ & $2362.2(28)$ & $-6.9$ & $36.7$ & $33.1$
+\\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\end{table}
+The scale uncertainty, $\Delta_{\mathrm{scale}}$, results from a variation
+of the factorization and renormalization scales
+\eqref{eq:VBF_ren_fac_scales} by a factor of $2$ keeping $\muF=\muR$,
+as indicated above, and the combined PDF${\oplus}\alphas$ uncertainty
+$\Delta_{\mathrm{PDF\oplus\alphas}}$ is obtained following the PDF4LHC
+recipe~\cite{Butterworth:2015oua}. Both $\Delta_{\mathrm{scale}}$ and
+$\Delta_{\mathrm{PDF\oplus\alphas}}$ are actually obtained from
+$\sigma_{\NNLO \QCD}^{\DIS}$, but this QCD-driven uncertainties can be
+taken over as uncertainty estimates for $\sigma^{\VBF}$ as well.  The
+theoretical uncertainties of integrated cross sections originating
+from unknown higher-order EW effects can be estimated by
+\begin{equation}
+\Delta_\ELWK = \max\{0.5\%,\delta_{\ELWK}^2,\sigma_\gamma/\sigma^{\VBF}\}.
+\end{equation}
+The first entry represents the generic size of NNLO EW corrections, while the second accounts for
+potential enhancement effects.
+Note that the whole photon-induced cross-section contribution $\sigma_\gamma$ is treated
+as uncertainty here, because the PDF uncertainty of $\sigma_\gamma$ is estimated to be $100\%$
+with the NNPDF2.3QED PDF set. At present, this source, which is about $1.5\%$,
+dominates the EW uncertainty of the integrated VBF cross section
+
+Results for the VBF cross sections from a scan over the SM Higgs-boson mass $\MH$ 
+can be found in \refA{VBFappendix}.
+
+\subsection{Differential VBF cross sections}
+
+Figures~\ref{fig:SM-VBF-ptH-yH}--\ref{fig:SM-VBF-phijj} show the most important
+differential cross sections for Higgs production via VBF in the SM.
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/ptH.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/yH.pdf}
+\caption{Transverse-momentum and rapidity distributions of the Higgs boson in VBF
+at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and various relative contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.}
+\label{fig:SM-VBF-ptH-yH}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/ptj1.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/yj1.pdf}
+\caption{Transverse-momentum and rapidity distributions of the leading jet in VBF
+at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and various relative contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.}
+\label{fig:SM-VBF-ptj1-yj1}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/ptj2.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/yj2.pdf}
+\caption{Transverse-momentum and rapidity distributions of the subleading jet in VBF
+at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and various relative contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.}
+\label{fig:SM-VBF-ptj2-yj2}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/Mjj.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/yjj.pdf}
+\caption{Distributions in the invariant mass and in the rapidity difference of the first two
+leading jets in VBF
+at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and various relative contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.}
+\label{fig:SM-VBF-Mjj-yjj}
+\end{figure}
+%
+\begin{figure}
+\centerline{
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/phijj.pdf}
+}
+\caption{Distribution in the azimuthal-angle difference of the first two
+leading jets in VBF
+at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and various relative contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.}
+\label{fig:SM-VBF-phijj}
+\end{figure}
+%
+The upper panels show the LO cross section as well as the best fixed-order prediction,
+based on the analogue of Eq.~\eqref{eq:sigmaVBF} for differential
+cross sections.
+The lower panels illustrate relative contributions and the ratios
+$(\NLO/\LO)_{\mathrm{qcd}}$ and $(\NNLO/\NLO)_{\mathrm{qcd}}$
+of QCD predictions when going from LO to NLO QCD to
+NNLO QCD. Moreover, the relative EW correction to the (anti)quark--(anti)quark
+channels ($\delta_{\ELWK}=\sigma_{\ELWK}/\sigma_{\LO}$) and the relative correction induced by initial-state 
+photons ($\delta_\gamma=\sigma_\gamma/\sigma_\LO$) are shown.
+Finally, the relative size of the $s$-channel contribution for
+Higgs+2jet production
+($\delta_{\mbox{\scriptsize $s$-channel}}=\sigma_{\mbox{\scriptsize $s$-channel}}/\sigma_\LO$) is
+depicted as well, although it is not included in the definition of the VBF cross section.
+Integrating the differential cross sections shown in the following, and all its
+individual contributions, results in the fiducial cross sections discussed in the
+previous section.
+
+The ratio $(\NLO/\LO)_{\mathrm{qcd}}$ shows a quite large impact of NLO QCD
+corrections, an effect that can be traced back to the scale choice $\mu=\MW$,
+which is on the low side if mass scales such as $p_{\mathrm{T}}$ and $M_{jj}$
+get large in some distributions. The moderate ratio
+$(\NNLO/\NLO)_{\mathrm{qcd}}$, however, indicates nice convergence of perturbation
+theory at NNLO QCD. The band around the ratio $(\NNLO/\NLO)_{\mathrm{qcd}}$ illustrates the
+scale uncertainty of the NNLO QCD cross section, which also applies to $\sigma^{\VBF}$.
+
+The EW corrections $\delta_{\ELWK}$ to (pseudo)rapidity and angular distributions are rather flat,
+resembling the correction to the integrated (fiducial) cross section.
+In the high-energy tails of the $p_{\mathrm{T}}$ and $M_{jj}$ distributions,
+$\delta_{\ELWK}$ increases in size to $10$--$20\%$, showing the onset of the well-known large
+negative EW corrections that are enhanced by logarithms of the form
+$(\alpha/\sw^2)\ln^2(p_{\mathrm{T}}/\MW)$.
+The impact of the photon-induced channels uniformly stays at the generic level of $1$--$2\%$, i.e.\
+they cannot be further suppressed by cuts acting on the variables shown in the distributions.
+
+The contribution of $s$-channel (i.e.\ VH-like) production uniformly shows the relative size
+of about $1.5\%$ observed in the fiducial cross section, with the exception of the 
+$M_{jj}$ and $\Delta y_{jj}$ distributions, where this contribution
+is enhanced at the lower ends of the spectra. Tightening the VBF cuts at theses ends, 
+would further suppress the impact of $\sigma_{s-\mathrm{channel}}$, but reduce the signal
+at the same time. 
+As an alternative to decreasing $\sigma_{s-\mathrm{channel}}$, a veto on subleading jet pairs with 
+invariant masses around $\MW$ or $\MZ$ may be promising. Such a veto, most likely, would
+reduce the photon-induced contribution $\delta_\gamma$, and thus the corresponding uncertainty, as well.
+
+The theoretical uncertainties of differential cross sections originating from unknown 
+higher-order EW effects can be estimated by
+\begin{equation}
+\Delta_\ELWK = \max\{1\%,\delta_{\ELWK}^2,\sigma_\gamma/\sigma^{\VBF}\},
+\end{equation}
+i.e.\ $\Delta_\ELWK$ is taken somewhat more conservative than for integrated cross sections, accounting for possible
+enhancements of higher-order effects due to a kinematical migration of events in distributions.
+Note that $\delta_{\ELWK}^2$, in particular, covers the known effect of enhanced EW corrections at high
+momentum transfer (EW Sudakov logarithms, etc.).
+As discussed for integrated cross sections in the previous section, the large uncertainty of the
+current photon PDF forces us to include the full contribution $\sigma_\gamma$ in the EW
+uncertainties.
+
+\clearpage
+
+\section{VH cross-section predictions}
+\label{sec:VH-XS}
+
+\subsection{Programs and tools for VH}
+
+\subsubsection{HAWK}
+\label{sec:HAWK-VH-sub-sub}
+
+\HAWK{}~\cite{Denner:2014cla,HAWK} 
+is a parton-level event generator for Higgs production in
+vector-boson fusion~\cite{Ciccolini:2007jr, Ciccolini:2007ec},
+$\Pp\Pp\to\PH jj$, and Higgs-strahlung \cite{Denner:2011id},
+$\Pp\Pp\to\PH\PW/\PZ\to \PH+2\,$leptons.
+Here we summarise its most important features for the VH channel. 
+
+\HAWK{} calculates the complete NLO QCD and EW corrections 
+to the processes
+$\Pp\Pp\to\PW\PH\to\PGn_{\Pl}\,\Pl\,\PH$ and
+$\Pp\Pp\to\PZ\PH\to\Pl^-\Pl^+\PH/\PGn_{\Pl}\PAGn_{\Pl}\PH$,
+i.e.\ the leptonic decays and all off-shell effects
+of the W/Z bosons are included.
+The Higgs boson can be taken as on-shell or off-shell
+(with optional decay into a pair of gauge singlets).
+The EW corrections include also the contributions from photon-induced
+channels, but gluon-fusion contributions ($\Pg\Pg\to\PZ\PH$)
+are not taken into account.
+External fermion masses are neglected,
+and the renormalisation and factorisation scales are set to $M_V+\MH$ 
+($V=\PW,\PZ$) by default. Since version 2.0, \HAWK{} includes
+anomalous Higgs-boson--vector-boson couplings.
+Further features of \HAWK{} are described in \Bref{Denner:2014cla}
+and on its web page~\cite{HAWK}.
+
+\subsubsection{MadGraph5\_aMC@NLO}
+\label{sec:aMCNLO-sub-sub-VH}
+
+Similar to the generation of any generic process, also Higgs-boson production
+in association with a vector boson can be generated automatically with
+{\sc MadGraph5\_aMC@NLO}. At the NLO QCD accuracy, multiple jets can 
+also be included using the FxFx merging technique~\cite{Frederix:2012ps}. In
+\Bref{Alwall:2014hca} the example of $\PH \Pe^+ \nu_{\Pe} + 0,1 \textrm{jets}$ has
+been presented, and adding a further jet at the NLO is feasible with
+a small-scale cluster. The situation is entirely similar for the case
+of $\PZ\PH$ (possibly plus jet) production. The commands to generate 
+the corresponding codes are
+\begin{verbatim}
+import model loop_sm-no_b_mass
+define l+ = e+ mu+ ta+
+define l- = e- mu- ta-
+define vl~ = ve~ vm~ vt~
+define vl = ve vm vt
+generate p p > h l+ l- [QCD] @0
+add process p p > h l+ vl [QCD] @0
+add process p p > h l- vl [QCD] @0
+add process p p > h l+ l- j [QCD] @1
+add process p p > h l+ vl j [QCD] @1
+add process p p > h l- vl~ j [QCD] @1
+add process p p > h l+ l- j j [QCD] @2
+add process p p > h l+ vl j j [QCD] @2
+add process p p > h l- vl~ j j [QCD] @2
+output VH-MG5_aMC
+\end{verbatim}
+The first command loads a five-flavour scheme model (the {\sc MG5\_aMC} default
+uses a four-flavour scheme model), which sets the $\PQb$-quark mass to zero and
+includes it in the definition of the \texttt{p} and \texttt{j} multi-particle
+labels. The next four commands define the multi-particle labels for the
+leptons and neutrinos used in the \texttt{generate} and \texttt{add process}
+commands. After writing the code to disk (with the \texttt{output} command)
+the event generation can be started by executing the command
+\texttt{launch}. The FxFx merging algorithm is available when matching to
+\HERWIG6, \PYTHIA8, or \HERWIG++ partons
+showers~\cite{Frederix:2012ps,Frederix:2015eii}, and can be turned on by
+setting the \texttt{ickkw} parameter to \texttt{3} in the file run\_card.dat.
+
+\subsubsection{MCFM}
+
+The calculation is performed at NNLO QCD
+and includes the decays of the unstable
+Higgs and vector bosons. We also include all
+$\mathcal{O}(\alpha_s^2)$ contributions that occur in production for
+these processes: those mediated by the exchange of a single
+off-shell vector boson in the $s$-channel, and those which arise
+from the coupling of the Higgs boson to a closed loop of
+fermions.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=14cm]{./WG1/VBFplusVH/diagrams/DYNNLO.pdf}
+\caption{Drell--Yan-like production modes for the associated production of a Higgs boson. Shown are representative Feynman diagrams needed
+to compute the $\mathcal{O}(\alphas^2)$ corrections to the process. Examples are shown for each of the 0-, 1-, and 2-parton phase-space configurations.}
+\label{fig:DYNNLO}
+\end{center}
+\end{figure}
+%
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{./WG1/VBFplusVH/diagrams/WHyt.pdf}
+\includegraphics[width=12cm]{./WG1/VBFplusVH/diagrams/VIIRII.pdf} \\ \vspace*{4mm}
+\includegraphics[width=12cm]{./WG1/VBFplusVH/diagrams/ggHZ.pdf}
+\caption{Diagrams representing associated production of a Higgs boson that
+are sensitive to the top Yukawa coupling $y_{\PQt}$.
+The topologies indicated in the top line occur for either $\PW\PH$ or $\PZ\PH$ production
+and interfere with the LO amplitude. The remaining topologies
+only occur for $\PZ\PH$ production.  The $\Pg\Pg\rightarrow \PZ\PH$ contribution represented
+in the bottom line is not proportional to $y_{\PQt}$, as can be seen from
+the examples on the left ($y_{\PQt}$-dependent) and right (no~$y_{\PQt}$).
+}
+\label{fig:Yt}
+\end{center}
+\end{figure}
+%
+Examples of diagrams that contribute at NNLO QCD are
+shown in Figs.~\ref{fig:DYNNLO} and~\ref{fig:Yt}.
+The first type of contributions has the same structure
+as single vector-boson production, c.f.\ Fig.~\ref{fig:DYNNLO}.
+Diagrams of the second type, shown in Fig.~\ref{fig:Yt}, all contain
+a closed loop of fermions and, in general, represent
+the Higgs boson coupling directly to a heavy quark (predominantly a top-quark).
+Note that some of the contributions shown in Fig.~\ref{fig:Yt} only
+occur for the case of $\PZ\PH$ production and, for the $\Pg\Pg \to \PZ\PH$ contributions,
+not all diagrams are proportional to the top-quark Yukawa coupling.
+Each of these contributions results in NNLO QCD corrections at the few percent level
+for typical cuts, so that inclusion of them all is necessary in order
+to obtain sufficient theoretical control of this process.
+A further complication is the inclusion of decays of the Higgs boson into
+bottom quarks, which we consider.  Our calculation also includes the
+significant impact of NLO QCD corrections in this decay, using the factorized approach
+described in \Brefs{Ferrera:2013yga,Ferrera:2014lca}.  This method takes advantage
+of improved descriptions of the total decay rate that are available in the \HDECAY\ code~\cite{Djouadi:1997yw}.
+The assembly of a complete calculation at NNLO QCD requires the regularization of infrared singularities,
+which we handle using the recently-developed ``jettiness subtraction''
+procedure~\cite{Gaunt:2015pea,Boughezal:2015dva,Boughezal:2015aha,Boughezal:2015ded}
+that has been implemented in the Monte Carlo program \MCFM~\cite{Campbell:1999ah,Campbell:2011bn,Campbell:2015qma}.
+A detailed description of our calculation can be found in \Bref{Campbell:2016jau}.
+
+
+\subsubsection{VHNNLO}
+
+\vhnnlo~\cite{Ferrera:2011bk,Ferrera:2013yga,Ferrera:2014lca} is a parton level
+program for the calculation of fully differential cross sections for $\Pp\Pp\to\PW\PH$
+and $\Pp\Pp\to\PZ\PH$ including up to second order QCD corrections and the decays
+of the weak bosons to leptons and of the Higgs boson to bottom quarks. 
+
+\subsubsection{VH@NNLO}
+
+\VHNNLO~\cite{Brein:2012ne,Harlander:2013mla} calculates the total
+inclusive cross section for $\Pp\Pp\to\PW\PH$ and $\Pp\Pp\to\PZ\PH$
+production, including all available QCD corrections through ${\cal
+O}(\alphas^2)$, i.e.\ NNLO.\footnote{Large parts of \VHNNLO\ are taken
+over from {\sc ZWPROD} by W.~van Neerven~\cite{Hamberg:1990np}.}
+Specifically, these are the Drell--Yan-like terms (see \Fref{fig:DYNNLO}), given by the
+process $\PQq\bar\PQq\to\PH\PW/\PZ$ plus radiative corrections due to
+virtual and real gluon and/or quark
+radiation~\cite{Hamberg:1990np,Brein:2003wg}, as well as terms involving
+closed top or bottom loops (see \Fref{fig:Yt}). For the latter, we distinguish those that
+interfere with the lowest-order $\PQq\bar\PQq\to\PH\PW/\PZ(\Pg)$ amplitude
+(plus crossings) and which we simply denote as ``top-loop'' terms
+$\sigma_{\Pt\mbox{\scriptsize -loop}}$~\cite{Brein:2011vx}, and the
+$\Pg\Pg\to\PH\PZ$
+process~\cite{Kniehl:1990iv,Dicus:1988yh,Brein:2003wg,Kniehl:2011aa}.
+\VHNNLO\
+also includes the NLO corrections for this latter process, which are of
+order $\alphas^3$~\cite{Altenkamp:2012sx}. The NLO+NLL corrections for
+that process quoted below are not yet included
+in \VHNNLO~\cite{Harlander:2014wda}.
+
+\subsection{VH parameters and cuts}
+\label{sec:VHcuts-sub}
+
+The numerical results presented in the next section have been
+computed using the values of the EW parameters given in \Sref{chapter:input}.
+The electromagnetic coupling is fixed in the
+$\GF$ scheme, 
+\beq
+ \alpha_{\GF} = \sqrt{2}\GF\MW^2(1-\MW^2/\MZ^2)/\pi,
+\eeq
+and the weak mixing angle is defined in the on-shell scheme,
+\begin{equation}
+\sin^2\theta_{\mathrm{w}}=1-\MW^2/\MZ^2.
+\end{equation}
+
+In the calculation of the QCD-based cross sections, 
+the renormalisation and factorisation scales are set equal to the
+invariant mass of the $\VH$ system,
+\begin{equation}
+\label{eq:VH_ren_fac_scales}
+\mu=\muR = \muF= M_{\PV\PH}, \quad M_{V\PH}^2\equiv(p_V+p_{\PH})^2,
+\end{equation}
+and both scales are varied independently in the range $M_{V\PH}/3 < \mu < 3M_{V\PH}$.
+The PDFs are taken from the set PDF4LHC15\_nnlo\_mc PDFs.
+
+For the calculation of the EW corrections we employed
+the NNPDF2.3QED PDF set~\cite{Ball:2013hta}, which includes
+EW corrections and a photon PDF.
+For the calculation of photon-induced contributions to the cross sections
+with a realistic error estimate we took into account the photon PDF
+of the MRST2004qed PDF set~\cite{Martin:2004dh} as well.
+%
+Note, however, that the relative EW correction factor, which is used in the following,
+hardly depends on the PDF set, so that the uncertainty due to the
+mismatch in the PDF selection is easily covered by the other remaining
+theoretical uncertainties. Moreover, the EW corrections show a very small
+dependence on the factorization scale, so that the use of 
+$\muF=M_V+\MH$ is acceptable,%
+\footnote{In its present version, \HAWK{} does not support dynamical scales.}
+although full consistency would require to
+use equal QCD and QED factorization scales.
+
+For the fiducial cross section and for 
+differential distributions the following reconstruction scheme
+and cuts have been applied.
+Jets are constructed according to the anti-$\kT$ algorithm~\cite{Cacciari:2008gp} with
+$D=0.4$, using the default recombination scheme ($E$ scheme).  
+Jets are constructed from partons $j$ with
+\begin{equation}
+\label{eq:VH_cuts1}
+|\eta_j| < 5\,,
+\end{equation}
+where $y_j$ denotes the rapidity of the (massive) jet.
+In the presence of phase-space cuts and in the generation of
+differential distributions, the treatment of real photons,
+which appear as part of the NLO EW corrections, has to be specified.
+In the following we assume perfect isolation of photons from leptons.%
+\footnote{Perfect isolation to some extent applies to
+muons going out into the muon chamber. A simulation of radiation off
+electrons requires some recombination of collinear electron--photon pairs,
+mimicking the inclusive treatment of electrons within electromagnetic showers
+in the detector. 
+The two different treatments were compared in \Bref{Denner:2011id}, revealing
+differences at the $1\%$ level for the relevant physical observables.}
+The charged leptons $\Pl$ have to pass the following acceptance cuts,
+\begin{equation}
+\label{eq:VH_cuts2}
+{\pT}_{\Pl} > 15\UGeV, \qquad
+|y_{\Pl}| <2.5\,.
+\end{equation}
+For $\PZ\PH$ production with $\PZ\to\Pl^+\Pl^-$ the invariant mass of the two leptons
+should further concentrate around the Z~pole,
+\begin{equation}
+75\UGeV < M_{\Pl\Pl} < 105\UGeV.
+\end{equation}
+
+While the $\PZ\PH$ cross sections are independent
+from the CKM matrix, quark mixing has some effect on WH production.
+For the calculation of the latter we employed a Cabbibo-like CKM matrix
+(i.e.\ without mixing to the third quark generation) with Cabbibo angle
+$\theta_{\mathrm{C}}$ fixed by $\sin\theta_{\mathrm{C}}=0.225$.
+Moreover, we note that we employ complex W- and Z-boson masses in the
+calculation of the EW corrections in the standard \HAWK{} approach, 
+as described in \Bref{Denner:2011id}.
+
+The Higgs boson is treated as on-shell particle in the following consistently,
+since its finite-width and off-shell effects in the signal region are
+suppressed in the Standard Model.
+
+
+\subsection{Total VH cross sections}
+
+\begin{table}
+\caption{Total $\PWp({\to}\Pl^+\nu_{\Pl})$H cross sections including QCD and EW corrections
+and their uncertainties for different proton--proton collision energies
+$\sqrt{s}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:wph_XStot}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{cccccccc}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma$[fb] & $\Delta_{\mathrm{scale}}$[\%] & 
+$\Delta_{\mathrm{PDF}/\alphas/\mathrm{PDF\oplus\alphas}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DY}$[fb] & $\sigma_{\Pt\mbox{\scriptsize -loop}}$[fb] & 
+$\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb] 
+\\
+\hline
+% Old version uses central photon PDF of NNPDF2.3qed
+% $7$ & $  42.09$ & ${}_{-0.9}^{+ 0.7}$ & $\pm 2.0$ & $  42.78$ & $   0.42$ & $-7.2$ & $ 1.98$ \\
+% $8$ & $  50.90$ & ${}_{-0.9}^{+ 0.6}$ & $\pm 2.0$ & $  51.56$ & $   0.53$ & $-7.3$ & $ 2.56$ \\
+% $13$ & $  97.17$ & ${}_{-0.7}^{+ 0.5}$ & $\pm 1.8$ & $  97.18$ & $   1.20$ & $-7.4$ & $6.01$ \\
+% $14$ & $ 106.87$ & ${}_{-0.8}^{+ 0.3}$ & $\pm 1.8$ & $ 106.65$ & $   1.36$ & $-7.4$ & $6.78$ \\
+% New version uses 
+% central: average of NNPDF median and MRST set 1
+% lower error: smallest of all NNPDF sets
+% upper error: maximum of (smallest 68% NNPDF sets) or (MRST set 0)
+$7$ & $  40.99$ & ${}_{-0.9}^{+ 0.7}$ & $\pm1.9/\pm0.7/\pm 2.0$ & $  42.78$ & $   0.42$ & $-7.2$ & $ 0.88^{+1.10}_{-0.10}$ \\
+$8$ & $  49.52$ & ${}_{-0.9}^{+ 0.6}$ & $\pm1.8/\pm0.8/\pm 2.0$ & $  51.56$ & $   0.53$ & $-7.3$ & $ 1.18^{+1.38}_{-0.14}$ \\
+$13$ & $  94.26$ & ${}_{-0.7}^{+ 0.5}$ & $\pm1.6/\pm0.9/\pm 1.8$ & $  97.18$ & $   1.20$ & $-7.4$ & $3.09^{+3.33}_{-0.37}$ \\
+$14$ & $ 103.63$ & ${}_{-0.8}^{+ 0.3}$ & $\pm1.5/\pm0.9/\pm 1.8$ & $ 106.65$ & $   1.36$ & $-7.4$ & $3.55^{+3.72}_{-0.43}$ \\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\vspace{2em}
+\caption{Total $\PWm({\to}\Pl^-\bar\nu_{\Pl})$H cross sections including QCD and EW corrections
+and their uncertainties for different proton--proton collision energies
+$\sqrt{s}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:wmh_XStot}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{cccccccc}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma$[fb] & $\Delta_{\mathrm{scale}}$[\%] & 
+$\Delta_{\mathrm{PDF}/\alphas/\mathrm{PDF\oplus\alphas}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DY}$[fb] & $\sigma_{\Pt\mbox{\scriptsize -loop}}$[fb] & 
+$\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb] 
+\\
+\hline
+% Old version uses central photon PDF of NNPDF2.3qed
+%$7$ & $  23.80$ & ${}_{-0.8}^{+ 0.6}$ & $\pm 2.3$ & $  23.98$ & $   0.24$ & $-7.0$ & $   1.27$ \\
+%$8$ & $  29.59$ & ${}_{-0.8}^{+ 0.6}$ & $\pm 2.1$ & $  29.71$ & $   0.31$ & $-7.1$ & $   1.67$ \\
+%$13$ & $  62.03$ & ${}_{-0.7}^{+ 0.4}$ & $\pm 2.0$ & $  61.51$ & $   0.78$ & $-7.3$ & $   4.21$ \\
+%$14$ & $  68.97$ & ${}_{-0.6}^{+ 0.5}$ & $\pm 1.9$ & $  68.24$ & $   0.89$ & $-7.3$ & $   4.80$ \\
+% New version uses 
+% central: average of NNPDF median and MRST set 1
+% lower error: smallest of all NNPDF sets
+% upper error: maximum of (smallest 68% NNPDF sets) or (MRST set 0)
+$7$ & $  23.04$ & ${}_{-0.8}^{+ 0.6}$ & $\pm2.2/\pm0.6/\pm 2.3$ & $  23.98$ & $   0.24$ & $-7.0$ & $  0.51_{ -0.05}^{+  0.69}$ \\
+$8$ & $  28.62$ & ${}_{-0.8}^{+ 0.6}$ & $\pm2.1/\pm0.6/\pm 2.1$ & $  29.71$ & $   0.31$ & $-7.1$ & $  0.70_{ -0.07}^{+  0.94}$ \\
+$13$ & $  59.83$ & ${}_{-0.7}^{+ 0.4}$ & $\pm1.8/\pm0.8/\pm 2.0$ & $  61.51$ & $   0.78$ & $-7.3$ & $  2.00_{ -0.22}^{+  2.34}$ \\
+$14$ & $  66.49$ & ${}_{-0.6}^{+ 0.5}$ & $\pm1.7/\pm0.9/\pm 1.9$ & $  68.24$ & $   0.89$ & $-7.3$ & $  2.32_{ -0.26}^{+  2.65}$ \\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\end{table}
+Tables~\ref{tab:wph_XStot} and \ref{tab:wmh_XStot} summarize the total 
+Standard Model $\PW^\pm$H cross sections with $\PWp{\to}\Pl^+\nu_{\Pl}$
+and $\PWm{\to}\Pl^-\bar\nu_{\Pl}$
+as well as the corresponding uncertainties
+for different proton--proton collision energies
+for a Higgs-boson mass $\MH=125\UGeV$.
+Tables~\ref{tab:zllh_XStot} and~\ref{tab:znnh_XStot} likewise show
+the respective results on the total
+Standard Model $\PZ$H cross sections with $\PZ\to\Pl^+\Pl^-$
+and $\PZ\to\nu\bar\nu$ (summed over three neutrino generations).
+\begin{table}
+\caption{Total $\PZ$H cross sections with $\PZ\to\Pl^+\Pl^-$ including QCD and EW corrections
+and their uncertainties for different proton--proton collision energies
+$\sqrt{s}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:zllh_XStot}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{ccccccccc}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma$[fb] & $\Delta_{\mathrm{scale}}$[\%] & 
+$\Delta_{\mathrm{PDF}/\alphas/\mathrm{PDF\oplus\alphas}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DY}$[fb] & $\sigma^{\Pg\Pg\PZ\PH}_{\NLO+\NLL}$[fb] & 
+$\sigma_{\Pt\mbox{\scriptsize -loop}}$[fb] & 
+$\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb] 
+\\
+\hline
+% Old version uses central photon PDF of NNPDF2.3qed
+%$7$ & $  11.47$ & ${}_{-2.4}^{+ 2.6}$ & $\pm 1.7$ & $  10.91$ & $   0.94$ & $   0.11$ & $-5.2$ & $   0.07$ \\ 
+%$8$ & $  14.23$ & ${}_{-2.4}^{+ 2.9}$ & $\pm 1.7$ & $  13.36$ & $   1.33$ & $   0.14$ & $-5.2$ & $   0.09$ \\ 
+%$13$ & $  29.93$ & ${}_{-3.1}^{+ 3.8}$ & $\pm 1.6$ & $  26.66$ & $   4.14$ & $   0.31$ & $-5.3$ & $   0.22$ \\
+%$14$ & $  33.39$ & ${}_{-3.3}^{+ 3.8}$ & $\pm 1.6$ & $  29.47$ & $   4.87$ & $   0.36$ & $-5.3$ & $   0.24$ \\ 
+% New version uses 
+% central: average of NNPDF median and MRST set 1
+% lower error: smallest of all NNPDF sets
+% upper error: maximum of (smallest 68% NNPDF sets) or (MRST set 0)
+$7$ & $  11.43$ & ${}_{-2.4}^{+ 2.6}$ & $\pm1.6/\pm0.7/\pm 1.7$ & $  10.91$ & $   0.94$ & $   0.11$ & $-5.2$ & $  0.03_{ -0.00}^{+  0.04}$ \\
+$8$ & $  14.18$ & ${}_{-2.4}^{+ 2.9}$ & $\pm1.5/\pm0.8/\pm 1.7$ & $  13.36$ & $   1.33$ & $   0.14$ & $-5.2$ & $  0.04_{ -0.00}^{+  0.05}$ \\
+$13$ & $  29.82$ & ${}_{-3.1}^{+ 3.8}$ & $\pm1.3/\pm0.9/\pm 1.6$ & $  26.66$ & $   4.14$ & $   0.31$ & $-5.3$ & $  0.11_{ -0.01}^{+  0.12}$ \\
+$14$ & $  33.27$ & ${}_{-3.3}^{+ 3.8}$ & $\pm1.3/\pm1.0/\pm 1.6$ & $  29.47$ & $   4.87$ & $   0.36$ & $-5.3$ & $  0.12_{ -0.01}^{+  0.13}$ \\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\vspace{2em}
+\caption{Total $\PZ$H cross sections with $\PZ\to\nu\bar\nu$ (summed over three neutrino generations)
+including QCD and EW corrections
+and their uncertainties for different proton--proton collision energies
+$\sqrt{s}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:znnh_XStot}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{ccccccccc}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma$[fb] & $\Delta_{\mathrm{scale}}$[\%] & 
+$\Delta_{\mathrm{PDF}/\alphas/\mathrm{PDF\oplus\alphas}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DY}$[fb] & $\sigma^{\Pg\Pg\PZ\PH}_{\NLO+\NLL}$[fb] & 
+$\sigma_{\Pt\mbox{\scriptsize -loop}}$[fb] & 
+$\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb] 
+\\
+\hline
+$7 $ & $  68.18$ & ${}_{-2.4}^{+ 2.6}$ & $\pm1.6/\pm0.7/\pm 1.7$ & $  64.70$ & $   5.59$ & $   0.64$ & $-4.3$ & $  -0.00$ \\ 
+$8 $ & $  84.56$ & ${}_{-2.4}^{+ 2.9}$ & $\pm1.5/\pm0.8/\pm 1.7$ & $  79.25$ & $   7.89$ & $   0.81$ & $-4.3$ & $  -0.00$ \\ 
+$13$ & $ 177.62$ & ${}_{-3.1}^{+ 3.8}$ & $\pm1.3/\pm0.9/\pm 1.6$ & $ 158.10$ & $  24.57$ & $   1.85$ & $-4.4$ & $  -0.00$ \\ 
+$14$ & $ 198.12$ & ${}_{-3.3}^{+ 3.8}$ & $\pm1.3/\pm1.0/\pm 1.6$ & $ 174.77$ & $  28.88$ & $   2.11$ & $-4.4$ & $  -0.00$ \\ 
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\end{table}
+
+The total VH cross sections $\sigma^{\VH}$ are calculated according to
+\begin{eqnarray}
+\sigma^{\PW\PH} &=& \sigma_{\NNLO \QCD}^{\PW\PH,\DY} (1+\delta_{\ELWK}) + \sigma_{\Pt\mbox{\scriptsize -loop}} + \sigma_{\gamma},
+\label{eq:sigmaWH}
+\\
+\sigma^{\PZ\PH} &=& \sigma_{\NNLO \QCD}^{\PZ\PH,\DY} (1+\delta_{\ELWK}) 
++ \sigma_{\Pt\mbox{\scriptsize -loop}} + \sigma_{\gamma} + \sigma^{\Pg\Pg\PZ\PH},
+\label{eq:sigmaZH}
+\end{eqnarray}
+where $\sigma_{\NNLO \QCD}^{\VH,\DY}$ is the Drell--Yan-like part of the
+NNLO QCD prediction for the VH cross section, based on the calculation
+of \Bref{Brein:2003wg} with NNLO PDFs.
+Since we include the leptonic decays of the W/Z~bosons, we multiply the
+cross sections from \VHNNLO\ with the branching ratios
+\begin{equation}
+\mathrm{BR}_{\LO}(\PW\to\Pl\nu_{\Pl}) = 0.108894, \quad
+\mathrm{BR}_{\LO}(\PZ\to\Pl^+\Pl^-) = 0.0335950, \quad
+\mathrm{BR}_{\LO}(\PZ\to\nu\bar\nu) = 0.199218,
+\end{equation}
+which are the ratios of the LO partial widths and the total widths as defined in \Sref{chapter:input}.
+With these branching ratios our combination of QCD and EW corrections results in
+NNLO QCD + NLO EW accuracy.
+The relative NLO EW correction $\delta_{\ELWK}$ is calculated with \HAWK{}.
+Note that there is no issue with photon isolation in the calculation of the total cross section,
+where all mass singularities from collinear photon emission off leptons vanish owing to the
+KLN theorem.
+The contributions from photon-induced channels, $\sigma_{\gamma}$
+are obtained from \HAWK{} as well and added linearly to the cross section.
+It is important to notice that $\sigma_{\gamma}$ is based on the average of the
+median of the cross sections obtained with PDF replicas of NNPDF2.3QED PDFs 
+and the cross section obtained with MRST2004qed PDFs ``set~1''.
+The lower error corresponds to the lower limit of all NNPDF2.3QED PDFs, 
+the upper error to the maximum of the 68\% smallest cross sections from
+the NNPDF2.3QED set and the cross section obtained with MRST2004qed ``set~0''.
+Since the photon PDF is constrained by data rather losely, the error on
+$\sigma_{\gamma}$ is large and non-Gaussian. In fact the mean value of
+$\sigma_{\gamma}$ calculated with NNPDF2.3QED PDF replicas is
+larger than the shown median by factors $\sim2{-}2.5$.
+
+The contribution $\sigma^{\Pg\Pg\PZ\PH}$ of the gluon-fusion channel is
+calculated through NLO
+using \VHNNLO~\cite{Brein:2012ne,Harlander:2013mla,Altenkamp:2012sx};
+the NLL effects are added on top of that, following \Bref{Harlander:2014wda}.
+The scale uncertainty
+$\Delta_{\mathrm{scale}}$ results from a variation of the factorization
+and renormalization scales \eqref{eq:VH_ren_fac_scales} by a factor of
+$3$, as indicated above. 
+The errors $\Delta_{\mathrm{PDF}}$ and $\Delta_{\alphas}$ induced by
+uncertainties in the PDFs and $\alphas$, respectively, are given separately
+together with the combined version
+$\Delta_{\mathrm{PDF\oplus\alphas}}$, which is calculated 
+from the 68\%~CL interval using the PDF4LHC15\_nnlo\_mc PDF
+set. The 
+$\Delta_{\mathrm{scale}}$ and $\Delta_{\mathrm{PDF\oplus\alphas}}$ are
+evaluated without taking into account EW effects.
+
+The theoretical uncertainties of integrated cross sections originating from unknown higher-order 
+EW effects can be estimated by
+\begin{equation}
+\Delta_\ELWK = \max\{0.5\%,\delta_{\ELWK}^2,\Delta_\gamma\}.
+\label{eq:VH_EW_THU}
+\end{equation}
+This estimate is based on the maximum of the generic size $\sim0.5\%$ of the neglected
+NNLO EW effects, taking into account a possible systematic enhancement $\sim\delta_{\ELWK}^2$,
+and the potentially large relative uncertainty $\Delta_\gamma=\Delta\sigma_\gamma/\sigma$ of the photon-induced
+contribution $\sigma_\gamma$, whose absolute uncertainty $\Delta\sigma_\gamma$
+can be read from the tables.
+
+In order to extract the total VH production cross sections without
+leptonic W/Z decays in NNLO QCD + NLO EW accuracy (neglecting off-shell effects),
+one should divide the results on total cross sections by the respective
+leptonic W/Z branching ratios in NLO EW accuracy.
+These are given by
+\begin{equation}
+\mathrm{BR}_{\NLO}(\PW\to\Pl\nu_{\Pl}) = 0.108535, \quad
+\mathrm{BR}_{\NLO}(\PZ\to\Pl^+\Pl^-) = 0.0335962, \quad
+\mathrm{BR}_{\NLO}(\PZ\to\nu\bar\nu) = 0.201030,
+\end{equation}
+calculated from the ratios of the NLO partial widths 
+(calculated in the \HAWK{} setup) and the total widths 
+as defined in \Sref{chapter:input}. 
+In this extraction, one should subtract the photon-induced contributions $\sigma_\gamma$ from the
+cross sections before dividing through
+the branching ratio, since $\sigma_\gamma$ receives a significant contribution
+from incoming photons coupling to the charged leptons of the W or Z~decays.
+Thus, $\sigma_\gamma/\mathrm{BR}$ is an uncertainty of the resulting VH cross section, which
+is quite significant in the WH case.
+
+Results for the total VH cross sections from a scan over the SM Higgs-boson mass $\MH$ 
+can be found in \refA{VHappendix}.
+
+\subsection{Fiducial and differential VH cross sections}
+
+\begin{table}
+\caption{Fiducial $\PWp({\to}\Pl^+\nu_{\Pl})$H cross sections including QCD and EW corrections
+and their uncertainties for proton--proton collisions at 
+$\sqrt{s}=13\rm{TeV}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:wph_XSfiducial}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{ccccccc}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma$[fb] & $\Delta_{\mathrm{scale}}$[\%] & $\Delta_{\mathrm{PDF}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DY}$[fb] & $\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb]
+\\
+\hline
+% Old version uses central photon PDF of NNPDF2.3qed
+%$13$ & $76.67$ & ${}_{-0.3}^{+ 0.3}$ & $\pm 1.4$ & $78.61$ & $-8.3$ & $2.58$
+% New version uses 
+% central: average of NNPDF median and MRST set 1
+% lower error: smallest of all NNPDF sets
+% upper error: maximum of (smallest 68% NNPDF sets) or (MRST set 0)
+$13$ & $73.90$ & ${}_{-0.3}^{+ 0.3}$ & $\pm 1.4$ & $78.61$ & $-8.3$ & $1.81^{+1.10}_{-0.23}$ 
+\\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\vspace{2em}
+\caption{Fiducial $\PWm({\to}\Pl^-\bar\nu_{\Pl})$H cross sections including QCD and EW corrections
+and their uncertainties for proton--proton collisions at 
+$\sqrt{s}=13\rm{TeV}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:wmh_XSfiducial}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{ccccccc}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma$[fb] & $\Delta_{\mathrm{scale}}$[\%] & $\Delta_{\mathrm{PDF}}$[\%] &
+$\sigma_{\NNLO \QCD}^{\DY}$[fb] & $\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb]
+\\
+\hline
+% Old version uses central photon PDF of NNPDF2.3qed
+%$13$ & $ 44.32 $ & ${}_{-0.3}^{+ 0.2}$ & $\pm 1.7$ & $45.29$ & $-8.0$ & $1.65$
+% New version uses 
+% central: average of NNPDF median and MRST set 1
+% lower error: smallest of all NNPDF sets
+% upper error: maximum of (smallest 68% NNPDF sets) or (MRST set 0)
+$13$ & $ 42.77 $ & ${}_{-0.3}^{+ 0.2}$ & $\pm 1.8$ & $45.29$ & $-8.0$ & $1.11^{+0.65}_{-0.12}$
+\\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\vspace{2em}
+\caption{Fiducial $\PZ$H cross sections with $\PZ\to\Pl^+\Pl^-$ including QCD and EW corrections
+and their uncertainties for proton--proton collisions at 
+$\sqrt{s}=13\rm{TeV}$ for a Higgs-boson mass $\MH=125\UGeV$.}
+\label{tab:zllh_XSfiducial}
+\begin{center}%
+\begin{small}%
+\tabcolsep5pt
+\begin{tabular}{cccccccc}%
+\hline
+$\sqrt{s}$[GeV] & $\sigma$[fb] & $\Delta_{\mathrm{scale}}$[\%] & $\Delta_{\mathrm{PDF}}$[\%] & $\sigma_{\NNLO \QCD}^{\DY}$[fb] & 
+$\sigma^{\Pg\Pg\PZ\PH}$[fb] & $\delta_{\ELWK}$[\%] & $\sigma_{\gamma}$[fb]
+\\
+\hline
+% Old version uses central photon PDF of NNPDF2.3qed
+%$13$ & $15.96$ & ${}_{-1.4}^{+ 2.2}$ &  $\pm 1.2$ & $16.21$ & $1.36$ & $-9.2$ & $0.002$
+% New version uses 
+% central: average of NNPDF median and MRST set 1
+% lower error: smallest of all NNPDF sets
+% upper error: maximum of (smallest 68% NNPDF sets) or (MRST set 0)
+$13$ & $16.08$ & ${}_{-1.4}^{+ 2.2}$ &  $\pm 1.2$ & $16.21$ & $1.36$ & $-9.2$ & $0.00$
+\\
+\hline
+\end{tabular}%
+\end{small}%
+\end{center}%
+\end{table}
+%
+Tables~\ref{tab:wph_XSfiducial} and \ref{tab:wmh_XSfiducial} summarize the fiducial 
+Standard Model $\PW^\pm$H cross sections with $\PWp{\to}\Pl^+\nu_{\Pl}$
+and $\PWm{\to}\Pl^-\bar\nu_{\Pl}$
+as well as the corresponding uncertainties
+for the proton--proton collision at $\sqrt{s}=13\UTeV$
+for a Higgs-boson mass $\MH=125\UGeV$.
+Table~\ref{tab:zllh_XSfiducial} likewise shows
+the respective results on the total
+Standard Model $\PZ$H cross sections with $\PZ\to\Pl^+\Pl^-$.
+The fiducial cross sections are calculated as follows: For QCD corrections we have used
+\vhnnlo{} with the $\rm{NNPDF3.0\_nnlo\_as\_0118}$ PDF set. Renormalization and factorization scales
+are varied independently by factors of $2$ and $1/2$ including $7$ combinations, avoiding the
+cases $(2,1/2)$ and $(1/2,2)$. The envelope is taken as a scale uncertainty to parametrize
+missing higher-order QCD corrections.
+A representation of the PDF error for the QCD part in VH production has been obtained
+with SMPDF~\cite{Carrazza:2016htc} starting from a prior of NNPDF3.0NNLO. The SMPDF derived
+in~\cite{Carrazza:2016htc} for $\rm{VH}$ processes adopted an analysis very close to the one used
+here and contains in total five symmetric eigenvectors.
+The EW corrections are again calculated with \HAWK{} in the same way as described for the 
+total cross section. Moreover, the recipe \eqref{eq:VH_EW_THU} for estimating the
+EW uncertainty $\Delta_\ELWK$ applies for the fiducial cross section as well.
+
+The combination of QCD and EW corrections
+has been done following the same procedure as described 
+in Eqs.~\eqref{eq:sigmaWH} and \eqref{eq:sigmaZH}, as far as the
+corresponding contributions are available (see tables).
+The $\Delta_{\mathrm{scale}}$ and $\Delta_{\mathrm{PDF}}$ are
+evaluated without taking into account EW effects;
+the uncertainties of the latter can be estimated again following Eq.~\eqref{eq:VH_EW_THU}.
+
+Differential cross section results in NNLO QCD + NLO EW accuracy have been computed
+following the same procedure as outlined above for the fiducial cross section.
+QCD corrections are calculated with \vhnnlo{} using
+the settings reported above for the computation of the fiducial cross sections.
+The EW corrections are again calculated with \HAWK{} as in the previous section, 
+with the only difference in the calculation of the photon-induced contribution.
+Instead of the cumbersome procedure of working with many PDF replicas we 
+have calculated $\sigma_\gamma$ with the central PDF of NNPDF2.3qed.
+In order to obtain $\sigma_\gamma$ in the same setup as for the integrated 
+cross sections of the previous section (for $\sqrt{s}=13\UTeV$),
+the shown results on $\sigma_\gamma$ in $\PW\PH$ production should be rescaled
+by a factor of $0.7$. This rescaling is based on the corresponding 
+integrated results for $\sigma_\gamma$. Taking over the relative uncertainty 
+from the integrated cross section as well, we get the estimate
+$\Delta_\gamma\sim1.5\%$.
+For $\PZ\PH$ production $\sigma_\gamma$ and $\Delta_\gamma$ have a 
+phenomenologically negligible impact.
+
+The theoretical uncertainties of differential cross sections originating from unknown
+higher-order EW effects can be estimated by
+\begin{equation}
+\Delta_\ELWK = \max\{1\%,\delta_{\ELWK}^2,\Delta_\gamma\},
+\end{equation}
+i.e.\ $\Delta_\ELWK$ is taken somewhat more conservative than for integrated cross sections,
+accounting for possible enhancements of higher-order effects due to a kinematical migration
+of events in distributions.
+Note that $\delta_{\ELWK}^2$, in particular, covers the known effect of enhanced EW corrections at high
+momentum transfer (EW Sudakov logarithms, etc.).
+
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wp/ptH.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wm/ptH.pdf}
+\caption{Left: transverse-momentum distributions of the Higgs boson in $\PW^+\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for $\PW^-\PH$ production.
+Note that $\delta_\gamma$ is based on the central value
+of the photon PDF of NNPDF2.3qed, while $\sigma_\gamma$ in \Trefs{tab:wph_XStot}--\ref{tab:zllh_XSfiducial}
+is based on combined results using the median and the photon PDF of MRST2004qed (and smaller by a factor 0.7), see text. 
+}
+\label{fig:SM-WH-ptH}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wp/yH.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wm/yH.pdf}
+\caption{Left: rapidity of the Higgs boson in $\PW^+\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for $\PW^-\PH$ production.
+Note that $\delta_\gamma$ is based on the central value
+of the photon PDF of NNPDF2.3qed, while $\sigma_\gamma$ in \Trefs{tab:wph_XStot}--\ref{tab:zllh_XSfiducial}
+is based on combined results using the median and the photon PDF of MRST2004qed (and smaller by a factor 0.7), see text. 
+}
+\label{fig:SM-WH-yH}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wp/ptlp.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wm/ptlm.pdf}
+\caption{Left: transverse-momentum distribution of the charged lepton in $\PW^+\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for $\PW^-\PH$ production.
+Note that $\delta_\gamma$ is based on the central value
+of the photon PDF of NNPDF2.3qed, while $\sigma_\gamma$ in \Trefs{tab:wph_XStot}--\ref{tab:zllh_XSfiducial}
+is based on combined results using the median and the photon PDF of MRST2004qed (and smaller by a factor 0.7), see text. 
+}
+\label{fig:SM-WH-ptlep}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wp/etalp.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wm/etalm.pdf}
+\caption{Left: pseudorapidity distribution of the charged lepton in $\PW^+\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for $\PW^-\PH$ production.
+Note that $\delta_\gamma$ is based on the central value
+of the photon PDF of NNPDF2.3qed, while $\sigma_\gamma$ in \Trefs{tab:wph_XStot}--\ref{tab:zllh_XSfiducial}
+is based on combined results using the median and the photon PDF of MRST2004qed (and smaller by a factor 0.7), see text. 
+}
+\label{fig:SM-WH-ptlep}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wp/ptmiss.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Wm/ptmiss.pdf}
+\caption{Left: missing transverse momentum in $\PW^+\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for $\PW^-\PH$ production.
+Note that $\delta_\gamma$ is based on the central value
+of the photon PDF of NNPDF2.3qed, while $\sigma_\gamma$ in \Trefs{tab:wph_XStot}--\ref{tab:zllh_XSfiducial}
+is based on combined results using the median and the photon PDF of MRST2004qed (and smaller by a factor 0.7), see text. 
+}
+\label{fig:SM-WH-ptmiss}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Zll/ptH.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Znn/ptH.pdf}
+\caption{Left: transverse-momentum distributions of the Higgs boson in $\PZ(\rightarrow \Pl^+\Pl^-)\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for $\PZ(\rightarrow \nu \bar\nu)\PH$ production.}
+\label{fig:SM-ZH-ptH}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Zll/yH.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Znn/yH.pdf}
+\caption{Left: rapidity distributions of the Higgs boson in $\PZ(\rightarrow \Pl^+\Pl^-)\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for $\PZ(\rightarrow \nu \bar\nu)\PH$ production.}
+\label{fig:SM-ZH-yH}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Zll/ptlp.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/plots/Znn/ptV.pdf}
+\caption{Left: transverse-momentum distributions of the positive charged lepton in $\PZ(\rightarrow \Pl^+\Pl^-)\PH$
+production at LO and including NNLO QCD and NLO EW corrections (upper plots)
+and relative higher-order contributions (lower plots) for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$.
+Right: the same for the missing-transverse-momentum distribution in $\PZ(\rightarrow \nu \bar\nu)\PH$ production.}
+\label{fig:SM-ZH-ptlpmiss}
+\end{figure}
+%
+Figures~\ref{fig:SM-WH-ptH}--\ref{fig:SM-WH-ptmiss} show the impact of radiative corrections
+of the most important differential distributions for Higgs production via WH mode in the SM,
+while in Figs.~\ref{fig:SM-ZH-ptH}--\ref{fig:SM-ZH-ptlpmiss} the same effects are shown for
+the Higgs boson production in association with a Z boson.
+The figures generically show the known size of the NLO QCD corrections at the
+level of $\sim20{-}30\%$ in the most important phase-space regions.
+At NNLO, the QCD corrections amount to some percent in the dominating regions, but
+can grow to $10{-}20\%$ in the tails of distributions. 
+In those regions the QCD scale uncertainty accordingly grows to $\sim5\%$ or more.
+The EW corrections are generically flat in (pseudo)rapidity distributions,
+where they resemble the EW corrections to the fiducial cross sections.
+In transverse-momentum distributions the EW correction grow further negative
+to $-(10{-}20)\%$ for $p_{\mathrm{T}}$ of some $100\UGeV$.
+The photon-induced corrections turn out to be only significant for WH
+production. They have a tendency to grow in the tails of distributions as well,
+but do hardly exceed the $5\%$ level there.
+
+Finally, we emphasize that the contributions $\sigma_{\Pt\mbox{\scriptsize -loop}}$ are not
+included in the discussion of fiducial cross sections and differential distributions
+presented here, while the contribution $\sigma^{\Pg\Pg\PZ\PH}$ are included at leading
+order ($\alphas^2$).
+
+\subsection{Cross-section predictions including the decay $H\to b\bar b$}
+
+We use the Standard Model parameters as recommended by the LHCHXSWG,
+supplemented by CKM matrix elements $V_{ud} = 0.975$ and
+$V_{cs} = 0.222$.  For the
+parton distribution functions we use the NNLO CT14 set and associated
+strong coupling, $\alphas(\MZ)=0.118$ with 3-loop running.  Central
+predictions correspond to the scale choice $\muR = \muF = \mu_0$ where
+$\mu_0 = M_V + \MH$ and
+we consider an envelope of variations around this choice to define
+the scale uncertainty.  For $\PW^\pm \PH$ production the extreme choices
+correspond to $\muR = 2\mu_0$, $\muF=\mu_0/2$ and
+$\muR = \mu_0/2$, $\muF=2\mu_0$.  For $\PZ\PH$ production the extrema
+are instead represented by $\muF = \muR = 2\mu_0$ and
+$\muF = \muR = \mu_0/2$.  Our results are obtained for the LHC operating
+at $\sqrt s=13\UTeV$.
+
+We cluster all jets according to the anti-$k_{\mathrm{T}}$ jet algorithm
+with distance parameter $R=0.4$.  We subsequently require that two of
+the jets contain the $\PQb$ and $\bar \PQb$ quarks from the Higgs-boson decay
+and that these jets satisfy,
+\begin{equation}
+p_{\mathrm{T}}(\mbox{\rm b-jet}) > 25\UGeV, \qquad
+|\eta(\mbox{\rm b-jet})| < 2.5 \,.
+\end{equation}
+Note that the calculation of the $\PH \to \PQb\bar \PQb$ decay is performed at NLO QCD.
+
+We begin by considering the $\PW^\pm \PH$ process, with the $\PW$~boson
+decaying to a lepton and a neutrino.  The acceptance cuts for the
+decay products are,
+\begin{equation}
+p_{\mathrm{T}}(\mbox{lepton}) > 15~\UGeV, \qquad
+|\eta(\mbox{lepton})| < 2.5, \qquad
+p_{\mathrm{T}}(\mbox{neutrino}) > 15~\UGeV \,.
+\end{equation}
+
+The cross sections under these cuts, using NNLO PDFs, are found to be
+\begin{eqnarray}
+&&
+\sigma^{\NLO \QCD}(\PW^+\PH) = 23.56~\mathrm{fb} \,, \qquad
+\sigma^{\NNLO \QCD}(\PW^+\PH) = 24.18^{+0.36}_{-0.64}~\mathrm{fb} \,, \nonumber \\
+&&
+\sigma^{\NLO \QCD}(\PW^-\PH) = 15.49~\mathrm{fb} \,, \qquad
+\sigma^{\NNLO \QCD}(\PW^-\PH) = 15.87^{+0.26}_{-0.46}~\mathrm{fb} \,.
+\end{eqnarray}
+The NNLO QCD corrections under these cuts are small and positive, increasing
+the NLO QCD cross sections by less than 1\%.  The scale uncertainty at NNLO QCD
+is at the 3\% level.
+
+For the $\PZ\PH$ process we consider the decay of the $\PZ$ boson into a single
+family of leptons and apply the cuts,
+\begin{eqnarray}
+&&
+p_{\mathrm{T}}(\mbox{lepton}) > 15\UGeV, \qquad
+|\eta(\mbox{lepton})| < 2.5, \qquad \nonumber \\
+&&
+75\UGeV < M_{\Pl\Pl} < 105\UGeV \,.
+\end{eqnarray}
+These result in the following cross sections,
+\begin{equation}
+\sigma^{\NLO \QCD}(\PZ\PH) = 6.041~\mathrm{fb} \,, \qquad
+\sigma^{\NNLO \QCD}(\PZ\PH) = 6.891^{+0.101}_{-0.162}~\mathrm{fb} \,.
+\end{equation}
+In this case the NNLO corrections increase the NLO cross section by
+about 15\% and the scale uncertainty at NNLO QCD is around 2\%.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.48\textwidth]{./WG1/VBFplusVH/plots/mcfm_ptH_yr4.pdf}
+\includegraphics[width=0.48\textwidth]{./WG1/VBFplusVH/plots/mcfm_wm_ptH_yr4.pdf}
+\end{center}
+\caption{The transverse momentum $p_{\mathrm{T}}^{\PQb\bar\PQb}$ for $\PW^+\PH$ (left) and $\PW^-\PH$ (right) at the 13 TeV LHC, phase space cuts are described in the text.}
+\label{fig:plots1}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.45\textwidth]{./WG1/VBFplusVH/plots/mcfm_yH_yr4.pdf}
+\includegraphics[width=0.45\textwidth]{./WG1/VBFplusVH/plots/mcfm_wm_yH_yr4.pdf}
+\end{center}
+\caption{The rapidity of the $\PQb\bar\PQb$ pair for $\PW^+\PH$ (left) and $\PW^-\PH$ (right) at the 13 TeV LHC, phase space cuts are described in the text.}
+\label{fig:plots2}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.48\textwidth]{./WG1/VBFplusVH/plots/mcfm_pt4_yr4.pdf}
+\includegraphics[width=0.48\textwidth]{./WG1/VBFplusVH/plots/mcfm_wm_pt4_yr4.pdf}
+\includegraphics[width=0.45\textwidth]{./WG1/VBFplusVH/plots/mcfm_y4_yr4.pdf} \; \;
+\includegraphics[width=0.45\textwidth]{./WG1/VBFplusVH/plots/mcfm_wm_y3_yr4.pdf}
+\end{center}
+\caption{The transverse momentum $p_{\mathrm{T}}^{\Pl}$ for $\PW^+\PH$ (left, upper) and $\PW^-\PH$ (right, upper) and
+lepton rapidity $\PW^+\PH$ (left, lower) and $\PW^-\PH$ (right, lower)  at the 13 TeV LHC, phase space cuts are described in the text.}
+\label{fig:plots3}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.487\textwidth]{./WG1/VBFplusVH/plots/mcfm_Z_ptH_yr4.pdf}
+\includegraphics[width=0.45\textwidth]{./WG1/VBFplusVH/plots/mcfm_Z_yH_yr4.pdf}
+\end{center}
+\caption{The transverse momentum and rapidity of the $\PQb\bar\PQb$ pair for $\PZ\PH$  at the 13 TeV LHC, phase space cuts are described in the text.}
+\label{fig:plots4}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.482\textwidth]{./WG1/VBFplusVH/plots/mcfm_Z_pt4_yr4.pdf}
+\includegraphics[width=0.45\textwidth]{./WG1/VBFplusVH/plots/mcfm_Z_y3_yr4.pdf}
+\end{center}
+\caption{The lepton transverse momentum and rapidity for $\PZ\PH$  at the 13 TeV LHC, phase space cuts are described in the text.}
+\label{fig:plots5}
+\end{figure}
+
+Differential predictions for the final state $V(\rightarrow \Pl_1\Pl_2) \PH(\rightarrow \PQb\bar{\PQb})$ are
+presented in Figs.~\ref{fig:plots1}-\ref{fig:plots5}. For $\PW^{\pm}\PH$ production we present the differential
+observables side-by-side on the same scale, so that the relative suppression of $\PW^-$ compared to $\PW^+$ is
+readily apparent. Figure~\ref{fig:plots1} presents the $p_{\mathrm{T}}$ of the Higgs-boson candidate, whose four-momentum
+is defined as the sum of those of the identified $\PQb$-jets. We present
+predictions for a variety of selection cuts. The red curve corresponds to an ``inclusive'' $p_{\mathrm{T}}^V$ selection
+while the remaining curves slice the phase space into various $p_{\mathrm{T}}^V$ bins:
+\begin{eqnarray}
+\mbox{red:} && p_{\mathrm{T}}^V~\mbox{inclusive} \,, \nonumber\\
+\mbox{blue:} && 0 < p_{\mathrm{T}}^V < 150~\mbox{GeV} \,, \nonumber\\
+\mbox{green:} && 150 < p_{\mathrm{T}}^V < 250~\mbox{GeV} \,, \nonumber\\
+\mbox{magenta:} && p_{\mathrm{T}}^V > 250~\mbox{GeV} \,.
+\end{eqnarray}
+The inclusive curve is thus recovered by summing over all of the remaining curves.  At leading order $p_{\mathrm{T}}^V
+\equiv p_{\mathrm{T}}^{\PH}$, with departures from this equality the result of additional radiation that is inherent in the
+higher-order corrections. The discontinuities that are apparent in the regions of phase space around $p_{\mathrm{T}}^V =
+p_{\mathrm{T}}^{\PH}$, namely at $p_{\mathrm{T}}^{\PH} = 150, 250$~GeV, are indicators of the fact that  perturbation theory is unreliable at
+such boundaries. The situation is exacerbated by the inclusion of higher-order corrections in the Higgs-boson
+decay, since boundary logarithms also appear due to radiation in the
+decay~\cite{Ferrera:2013yga,Ferrera:2014lca,Campbell:2016jau}. The differences between the $\PW^+\PH$ and $\PW^-\PH$
+predictions are most clear in the $y_{\PH}$ observable (Figure~\ref{fig:plots2}). This observable is sensitive to the
+valence/sea quark distribution inside the proton. The valence $u$ distribution is more favored for $\PW^+\PH$, and
+stiffens the $y_{\PH}$ distribution by favoring more forward regions of phase space. On the other hand $\PW^-\PH$
+production is associated with the production of more central Higgs bosons.  We present the leptonic observables
+in Figure~\ref{fig:plots3}. As the $p_{\mathrm{T}}^V$ cut is increased the $p_{\mathrm{T}}^{\Pl}$ distribution flattens out.  Finally
+in Figures~\ref{fig:plots4}-\ref{fig:plots5} we present the differential predictions for $\PZ\PH$. The conclusions
+are broadly similar, although the phase-space boundary effects are somewhat damped for this process.
+This is due to the presence of $\Pg\Pg\rightarrow \PZ\PH$ contributions that provide a sizable correction to the cross
+section at NNLO. Since this switches-on in the LO phase space, the large negative bin is partially compensated
+by the inclusion of these pieces. There is a noticeable inflection in the $p_{\mathrm{T}}^{\PH}$ spectrum at around
+$p_{\mathrm{T}}^{\PH} \sim m_t$, which is where these pieces begin to become important.
+
+\clearpage
+
+\section{Electroweak H+3jets production at NLO+PS}
+%
+Electroweak production of a Higgs boson in association with three jets has first been considered at NLO-QCD accuracy in Ref.~\cite{Figy:2007kv} in the VBF approximation. A matching of this calculation to parton-shower programs in the framework of the \POWHEGBOX\ has been presented in \cite{Jager:2014vna}.  In Ref.~\cite{Campanario:2013fsa}, NLO-QCD corrections have been provided without resorting to the VBF approximation. 
+%
+This latter calculation is based on spinor helicity techniques in
+combination with the methods developed in the context of
+\cite{Campanario:2011cs}. For its implementation, a module has been developed: 
+\textsf{HJets++}~\cite{HJets:URL} is a plugin to \HERWIG7's
+\textsf{Matchbox}~\cite{Bellm:2015jjp,Platzer:2011bc} module, providing
+amplitudes for calculating the production of a Higgs boson in
+association with $n_{{\rm jet}}=2,3$ jets at next-to-leading order in QCD,
+{\it i.e.} at ${\cal O}(\alpha^3 \alpha_s^{n_{{\rm jet}}-1})$\footnote{In this approach, Yukava couplings are counted as a separate expansion parameter; thus finite heavy  quark loop contributions are to be considered separately.}. 
+%
+The plugin nature of this module enables the amplitudes to be
+directly used in an NLO-plus-parton-shower matched simulation, with both
+subtractive (MC@NLO-type) and multiplicative (\POWHEG{}-type) matchings being
+available. Either of the two parton showers available in \HERWIG7  can be used in
+the matching. 
+
+Here, results obtained with the \textsf{HJets++} module matched  through the subtractive matching algorithm with the default \HERWIG7 angular ordered shower are presented and compared to those obtained with the \POWHEGBOX\   implementation. Multiple partonic interactions and hadronization are disregarded throughout. Contributions from external top- and bottom quarks are neglected and, consistently, the CT10 four-flavour PDF set is used \cite{Lai:2010vv}. In addition to the selection cuts of Eqs.~(\ref{eq:VBF_cuts1})--(\ref{eq:VBF_cuts2}) a third jet is required with 
+%
+\begin{equation}
+\label{eq:VBF_jet3_cut}
+{\pT}_j > 20\UGeV, \qquad 
+|y_j| < 5\,.
+\end{equation}
+%
+Results for the transverse-momentum and rapidity distributions of the Higgs boson and the hardest tagging jet are shown in Figs.~\ref{fig:SM-VBF-H3j-H} and \ref{fig:SM-VBF-H3j-jet1}, respectively. In addition, the respective distributions of the third-hardest jet are illustrated in Fig.~\ref{fig:SM-VBF-H3j-jet3}. 
+%
+For the given setup results obtained with the \POWHEGBOX\  code that resorts to the VBF approximation are in good agreement with the full calculation of the \textsf{HJets++} implementation. A comparison of the \textsf{HJets++} at NLO QCD  and at NLO QCD matched with parton shower reveals that parton-shower effects are moderate for the considered observables. 
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/vbf_h3j_H_pt.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/vbf_h3j_H_y.pdf}
+\caption{Transverse-momentum and rapidity distributions of the Higgs boson in EW H+3~jet production at NLO QCD (red line) as obtained from using the \textsf{Matchbox} framework 
+of \HERWIG7\ with the \textsf{HJets++} plugin, and at NLO QCD matched with the 
+\HERWIG7\ angular ordered parton shower in the same framework (blue line), 
+and with the \POWHEGBOX\ (green line), respectively. The lower panels show the respective ratios of the NLO+PS to the fixed-order NLO QCD result for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$. The yellow bands indicate the statistical uncertainty of the NLO result.}
+\label{fig:SM-VBF-H3j-H}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/vbf_h3j_jet1_pT_incl.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/vbf_h3j_jet1_y.pdf}
+\caption{Transverse-momentum and rapidity distributions of the hardest tagging jet in EW H+3~jet production at NLO QCD (red line)  as obtained from using the \textsf{Matchbox} framework 
+of \HERWIG7\ with the \textsf{HJets++} plugin, and at NLO QCD matched with the 
+\HERWIG7\ angular ordered parton shower in the same framework (blue line), 
+and with the \POWHEGBOX\ (green line), respectively. 
+The lower panels show the respective ratios of the NLO+PS to the fixed-order NLO QCD result for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$. The yellow bands indicate the statistical uncertainty of the NLO result. }
+\label{fig:SM-VBF-H3j-jet1}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/vbf_h3j_jet3_pT_incl.pdf}
+\hfill
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/figs/vbf_h3j_jet3_y.pdf}
+\caption{Transverse-momentum and rapidity distributions of the third jet in EW H+3~jet production at NLO QCD (red line)  as obtained from using the \textsf{Matchbox} framework 
+of \HERWIG7\ with the \textsf{HJets++} plugin, and at NLO QCD matched with the 
+\HERWIG7\ angular ordered parton shower in the same framework (blue line), 
+and with the \POWHEGBOX\ (green line), respectively. The lower panels show the respective ratios of the NLO+PS to the fixed-order NLO QCD result for $\sqrt{s}=13\UTeV$ and $\MH=125\UGeV$. The yellow bands indicate the statistical uncertainty of the NLO result. }
+\label{fig:SM-VBF-H3j-jet3}
+\end{figure}
+%
+
+% \section{ggF H+3jets at NLO}    % It seems that this activity is going into the ggH section
+
+\clearpage
+\section{VH production at NLO+PS}
+%
+Calculations for the VH process matched to parton-shower programs 
+are available at NLO accuracy with \POWHEGBOX~\cite{Nason:2009ai} and {\sc MG5\_aMC}~\cite{} 
+with FxFx merging~\cite{Frederix:2012ps,Frederix:2015eii}, for ZH and WH,
+and at LO for ggZH.
+%
+
+A systematic comparison of these calculation for 13 TeV LHC collisions
+has been carried out in several regions of the phase space
+making use of several Rivet~\cite{rivet} analyses, differing for the vector boson and Higgs candidate selection.
+% \subsubsubsection*{$Z(ll)H(bb)$}
+The $Z(ll)H(bb)$ process is studied in the following Z pT bins: inclusive, [0-100]~GeV, (100-200]~GeV, >200~GeV.
+The Z leptons are selected with the following cuts: $|\eta| <2.5$, $p_{T} > 15$ GeV.
+The dilepton invariant mass $m_{ll}$ in required to be in the range [75-105]~GeV.
+% \subsubsubsection*{$Z(\nu\nu)H(bb)$}
+The $Z(\nu\nu)H(bb)$ process is studied in the following Z $p_{T}$ bins: inclusive, [0-150]~GeV, (150-250]~GeV, >250~GeV.
+The Z $p_{T}$ is evaluated through the missing transverse energy of the event.
+% \subsubsubsection*{$W(l\nu)H(bb)$}
+The $W(l\nu)H(bb)$ process is studied in the following W $p_{T}$ bins: inclusive, [0-150]~GeV, (150-250]~GeV, >250~GeV.
+The W lepton is required to have $|\eta|<2.5$, $p_{T} > 15$ GeV.
+The neutrino $p_{T}$, evaluated through the missing transverse energy of the event, is required to be above 15 GeV.
+
+The processes are studied as a function of the numer of additional jets,
+defined as ak5 jets reconstructed with fastjet~\cite{} and selected to have $p_T > 20$ GeV and $|\eta| < 4.5$.
+The jet counting is used to define the exclusive VH+0-jet and VH+1-jet regions, used in the experimental analyses~\cite{atlas_vh,cms_vh}.
+
+For each process, the Higgs $p_T$ and rapidity, the lepton $p_T$ and rapidity, and the neutrino $p_T$
+are compared in each of the boson $p_T$ bins, for different bins of additional jets.
+
+The results obtained with \POWHEGBOX\ matched with the default \PYTHIA6 (\POWHEG{}+PY6) shower are presented and compared 
+to those obtained with the {\sc MG5\_aMC} implementationm matched with both default \PYTHIA8 ({\sc MG5\_aMC}+PY8) and default \HERWIG7 ({\sc MG5\_aMC}+HW7). 
+% Multiple partonic interactions are disregarded throughout.
+%
+% Comparisons are made with and without the shower hadronization and Higgs decay to bottom quarks.
+Comparisons are made while keeping the Higgs stable.
+%
+When the Higgs is decayed into $b-$quarks, the Higgs candidate is reconstructed
+by selecting the leading b-jet pair $p_T$, where the $b-$jets are required to have $|\eta| <2.5$ and $p_T > 25$ GeV.
+%
+The comparisons are performed after normalizing the total inclusive cross section to unity.
+
+The boson \pt and additional jet multiplicity distributions in the inclusive case are shown in Fig.~\ref{fig:stable__incl_vpt_jets}.
+A very small trend is visible in the boson \pt for {\sc MG5\_aMC}+HW7 when compared with \POWHEG{}+PY6 and {\sc MG5\_aMC}+PY8,
+while the distribution of selected additional jets for {\sc MG5\_aMC}+PY8 deviates at high multiplicity when compared with the other two cases.
+\begin{figure}
+\centering
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__V_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/xcheck_VptIncl_AjetIncl__Sel_najets.pdf}
+\caption{Comparison of the boson \pt (left) and number of additional jets (right) in the inclusive case for $Z(ll)H$.}
+\label{fig:stable__incl_vpt_jets}
+\end{figure}
+
+% While considering the Higgs as a stable particle, 
+In the phase space characterized by inclusive boson \pt and additional jets selection, the Higgs \pt for {\sc MG5\_aMC}+HW7 exhibits 
+the same trend visible for the boson \pt, while the rapidity shapes are well compatible
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_AjetIncl
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/xcheck_VptIncl_AjetIncl__Sel_najets.pdf
+% which is similar for \POWHEG{}+PY6 and {\sc MG5\_aMC}+HW7 while are substantially different for {\sc MG5\_aMC}+PY8,
+as shown in Fig.~\ref{fig:stable__incl_hig}.
+\begin{figure}
+\centering
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_rap.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_rap.pdf}
+\caption{Comparison of the boson \pt (left) and rapidity (right) in $Z(ll)H$ events (top) and $Z(\nu\nu)H$ events (bottom) in the inclusive jet region.}
+\label{fig:stable__incl_hig}
+\end{figure}
+
+This discrepancies clearly indicate the need for a careful choice of the underlying event tune
+while performing analyses which require categories with exclusive number of jets.
+% Aldo the boson \pt distribution looks very similar when using PY6 and PY8, while some trend is visible for HW7. This aspect is also critical
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__V_pT.pdf
+% in the choice of the the underlying event tune and parton shower settings.
+
+% Another subtlety is represented by the invariant mass distribution, which is very similar for PY6 and PY8 but different for HW7. 
+% This can be explained with the different modelig if the QED shower. 
+% Also this aspect can have has an impact on observables like the lepton \pt distributions.
+% % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/xcheck_VptIncl_AjetIncl__V_mass.png
+
+In the phase space characterized by an inclusive boson \pt and the explicit request for 0 additional jets,
+the shapes are once more very similar but a different normalization can be observed, as reflection of the
+different distribution of additional jets.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_Ajet0
+While requiring the inclusive boson \pt but exactly 1 additional jet,
+the \pt shapes start to deviate a bit, both for the lepton \pt and Higgs \pt.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_Ajet1
+Finally, when requiring the inclusive boson \pt and at least 1 additional jet
+the \pt shapes deviate a bit more (both for lepton \pt and Higgs \pt), as well as the
+overall normalization due to the different additional jet distribution as stated above.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_Ajetgt1
+
+In the low boson \pt region, very similar shapes are observed for the inclusive jet selection,
+apart from some mild trend in the low Higgs \pt region especially for HW7.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_AjetInc
+Very similar shapes for the 0 jet phase space but normalization offset due to usual different distribution int he number of jets.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_Ajet0
+Very similar shapes for exactly 1 jet phase space apart from some trend in the Higgs low pT region especially for HW7.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_Ajet1
+Very similar shapes are also observed while requiring at least 1 jet, apart from some trend in the low Higgs low \pt region especially for HW7,
+and the normalization offset due to usual different distribution int he number of jets.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_Ajetgt1
+
+The considerations expressed above for the low boson \pt are valid while selection both the medium and high boson \pt regions,
+in all the jet categories.
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptMed
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptHigh
+
+
+
+\section{NNLOPS for VH}
+
+We report about a study of the Higgs boson production in association with a $W^{+}$
+boson at next-to-next-to-leading order accuracy including parton
+shower effects (\NNLOPS{}) %\cite{astill:2016}
+\begin{equation}
+  pp\rightarrow HW^{+} \rightarrow H l^{+}\nu_{l}\,,
+  \label{eq:def-process}
+\end{equation}
+where $l = \{e,\mu\}$.
+To achieve \texttt{NNLOPS} accuracy we have implemented a reweighting
+method similar to the one introduced in \HNNLOPS{}
+\cite{Hamilton:2013fea} and \DYNNLOPS{} \cite{Karlberg:2014qua}. We
+reweight events obtained with the \POWHEG{} NLO+PS accurate
+calculation of HW in association with a jet, and upgraded with the
+\MINLO{} procedure (\HWJMINLO{}) \cite{Luisoni:2013kna}, by a factor:
+\begin{eqnarray} 
+  \mathcal{W}\left(\PhiHWsimp,\, p_{{\scriptscriptstyle
+      \mathrm{T}}}\right)&=&h\left(\pt\right)\,\frac{\smallint
+    d\sigma^{{\scriptscriptstyle
+        \mathrm{NNLO\phantom{i}}}}\,\delta\left(\PhiHWsimp-\PhiHWsimp\left(\Phi\right)\right)-\smallint
+    d\sigma_{B}^{{\scriptscriptstyle
+        \mathrm{MINLO}}}\,\delta\left(\PhiHWsimp-\PhiHWsimp\left(\Phi\right)\right)}{\smallint
+    d\sigma_{A}^{{\scriptscriptstyle
+        \mathrm{MINLO}}}\,\delta\left(\PhiHWsimp-\PhiHWsimp\left(\Phi\right)\right)}\nonumber\\ &+&\left(1-h\left(\pt\right)\right)\,,\label{eq:W}
+\end{eqnarray}
+where $d\sigma^{\mathrm{NNLO}}$ and $d\sigma_{A/B}^{\mathrm{MINLO}}$
+are multi-differential distributions obtained at pure NNLO level and
+by analysing produced \HWJMINLO{} events, respectively. The function
+$h(p_{\scriptscriptstyle\mathrm{T}})$ is defined as
+\begin{equation}
+h(p_\mathrm{T}) = \frac{(M_{H}+M_W)^2}{(M_{H}+M_W)^2+p_\mathrm{T}^2}\,, \label{eq:h_pt}
+\end{equation}
+where $p_{\scriptscriptstyle\mathrm{T}}$ is the transverse momentum of
+the leading jet, and it is used to split the \MINLO{} cross section
+into
+%
+\begin{equation} d\sigma_A^{\scriptscriptstyle\mathrm{MINLO}} =d
+\sigma^{\scriptscriptstyle\mathrm{MINLO}}\,
+h(p_{\scriptscriptstyle\mathrm{T}})\,,\qquad
+d\sigma_B^{\scriptscriptstyle\mathrm{MINLO}} =
+d\sigma^{\scriptscriptstyle\mathrm{MINLO}}\,
+(1-h(p_{\scriptscriptstyle\mathrm{T}})\,.
+\end{equation}
+Therefore the function $h(p_{\scriptscriptstyle\mathrm{T}})$ ensures that the
+reweighting is smoothly turned off when the leading jet is hard since
+in that region the \HWJMINLO{} generator is already NLO accurate, as
+is the NNLO calculation of HW.
+
+For the process in eq.~(\ref{eq:def-process}) the Born kinematics is
+fully specified by 6 independent variables. We have chosen them to be:
+the transverse momentum of Higgs boson
+($p_{\scriptscriptstyle\mathrm{T,H}}$); the rapidity of \HW{} system
+($y_{\scriptscriptstyle HW}$); the difference of Higgs rapidity and
+the $W^{+}$ rapidity ($\Delta y_{\scriptscriptstyle HW}$); the
+invariant mass of $e^{+}\nu_{e}$ system $(m_{e\nu})$; and the two
+Collins-Soper angles $(\theta^{*},\phi^{*})$ \cite{Collins:1977iv}:
+\begin{equation}
+  \Phi_{B} = \lbrace p_{\scriptscriptstyle\mathrm{T,H}}, y_{\scriptscriptstyle HW}, \Delta y_{\scriptscriptstyle HW}, m_{e\nu},
+      \theta^{*}, \phi^{*}  \rbrace\,.
+\end{equation}
+In this setup the multi-differential cross-section can be written in the form:
+\begin{eqnarray}
+\label{eq:sigma}
+\frac{d\sigma}{d\Phi_B}  &=& 
+\frac{d^6\sigma}{dp_{\scriptscriptstyle\mathrm{t},H}\,dy_{\scriptscriptstyle HW}\, d\Delta y_{\scriptscriptstyle HW}\, dm_{e\nu}\, d\thetacs d\phics} \nonumber \\
+&=&  \frac{3}{16\pi}  \left ( 
+\frac{d \sigma}{d\PhiHW}(1+\cos^2\thetacs) + \sum_{i=0}^{7} A_i(\PhiHW ) f_i(\thetacs, \phics)
+\right)\,,  
+\end{eqnarray}
+where $\PhiHW =\lbrace p_{\scriptscriptstyle\mathrm{T,H}}, y_{\scriptscriptstyle HW}, \Delta y_{\scriptscriptstyle HW},
+m_{e\nu}\rbrace$, and the angular dependence is encoded in
+the coefficients $A_{i}(\PhiHW)$ and the functions:
+\begin{eqnarray}
+\label{eq:f}
+f_0(\thetacs,\phics) = \left(1-3\cos^2\thetacs\right)/2\,,\qquad & 
+f_1(\thetacs,\phics) = \sin2\thetacs \cos\phics\,, \nonumber\\
+f_2(\thetacs,\phics) = (\sin^2\thetacs \cos2\phics)/2\,, \qquad& 
+f_3(\thetacs,\phics) = \sin\thetacs \cos\phics\,, \nonumber\\ 
+f_4(\thetacs,\phics) = \cos\thetacs\,, \qquad &
+f_5(\thetacs,\phics) = \sin\thetacs \sin \phics\,, \nonumber\\ 
+f_6(\thetacs,\phics) = \sin 2\thetacs \sin \phics\,, \qquad& 
+f_7(\thetacs,\phics) = \sin^2\thetacs \sin 2\phics\,.  
+\end{eqnarray}
+Since the angular dependence is fully expressed in terms of the
+$f_i(\thetacs,\phics)$ functions, the coefficients of the expansion
+$A_i(\PhiHW)$ depend only on the remaining kinematic variables. Using
+orthogonality properties of spherical harmonics we can extract these
+coefficients.
+
+In our work we have simplified our procedure by noting that the
+$m_{e\nu}$ invariant mass distribution has a flat K-factor. This is
+true even when examining the $d\sigma/d m_{e\nu}$ distribution in
+different bins of $\PhiHWsimp = \{p_{\scriptscriptstyle \mathrm{T},H},
+y_{\scriptscriptstyle HW}, \Delta y_{\scriptscriptstyle HW}
+\}$. Therefore, in eq.~(\ref{eq:sigma}) we replace the 4-dimensional
+$\PhiHW$ with the 3-dimensional $\PhiHWsimp$. This is an
+approximation, however we believe that it works extremely well as
+discussed in ref.~\cite{astill:2016}. In our work we obtain
+$\frac{d\sigma}{d\PhiHWsimp}$ and $A_i(\PhiHWsimp)\:(i=0,7)$ at pure
+NNLO level by running the \HVNNLO{} code
+\cite{Ferrera:2011bk,Ferrera:2013yga,private}, and we obtain the
+results at \MINLO{} level by running \HWJMINLO{}
+\cite{Luisoni:2013kna}. We store the results in 9 three-dimensional
+tables. Following this step, we use these tables along with
+eq.~(\ref{eq:sigma}) to obtain the function eq.~(\ref{eq:W}) to reweight
+each produced event. The final ensemble of events is NNLO accurate for
+all observables at Born level and a parton shower can now be applied
+without affecting the NNLO accuracy.
+
+In the following we show results for 13 TeV LHC collisions applying the
+lepton cuts reported in Eq.~\eqref{eq:VH_cuts2}.
+Jets have been clustered using the anti-$k_t$
+algorithm with $R=0.4$~\cite{Cacciari:2008gp} as implemented in
+\FASTJET{}~\cite{Cacciari:2005hq,Cacciari:2011ma} and count if they fullfil
+the following conditions:
+\begin{equation}
+p_{\mathrm{T}}(\mbox{\rm jet}) > 20\UGeV, \qquad
+|\eta(\mbox{\rm jet})| < 4.5 \,.
+\end{equation}
+% 
+As for the PDF, we have used the MMHT2014nnlo68cl set~\cite{Harland-Lang:2014zoa},
+corresponding to a value of $\alpha_s(M_{\scriptscriptstyle Z}) = 0.118$. 
+%
+For \HWJMINLO{} events, the scale choice is dictated by the \MINLO{}
+procedure, while for the NNLO we have used for the central renormalisation
+and factorisation scales $\mu_0 = M_{\scriptscriptstyle H}+M_{\scriptscriptstyle W}$.
+To estimate uncertainties we
+calculate both the fixed order NNLO and \HWJMINLO{} results at 7
+scales, each with renormalization and factorization scale varied
+independently up and down by a factor of 2. When these results are
+then used in eq.~(\ref{eq:W}) this gives 49 combinations for the
+\NNLOPS{} results. We define our perturbative uncertainty as the envelope
+of these 49 variations.
+
+To shower partonic events, we have used
+\PYTHIA{8}~\cite{Sjostrand:2007gs} (version 8.185) with the ``Monash
+2013''~\cite{Skands:2014pea} tune. We consider events after parton
+showering and hadronization effects, unless otherwise
+stated. Underlying event and multiple parton interactions were kept
+switched off. To define leptons from the boson decays we use the Monte
+Carlo truth, \emph{i.e.}~we assume that if other leptons are present,
+the ones coming from the $W$ decay can be identified correctly.  To
+obtain the results shown in the following, we have switched on the
+``doublefsr'' option introduced in ref.~\cite{Nason:2013uba}.
+%
+The plots shown throughout this study have been obtained keeping the
+veto scale equal to the default \POWHEG{} prescription.
+%
+We also present comparisons among our results and \HVNNLO{}.
+
+
+In Fig.~\ref{fig:extra_ptw_ptwh} we show distributions for the transverse momenta
+of the $W$ boson and the $WH$ system, respectively.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.47\textwidth,page=3]{./WG1/VBFplusVH/plots/final-all-hadr-plots-2.pdf}
+  \includegraphics[width=0.47\textwidth,page=2]{./WG1/VBFplusVH/plots/final-all-hadr-plots-2.pdf}
+  \caption{Comparison of \HWJMINLOPS{} (blue), NNLO (green), and \HWNNLOPS{} (red) for $\ptw$ (left) and $\ptwh$ (right). }
+  \label{fig:extra_ptw_ptwh}
+\end{figure}
+NNLO results (from \HVNNLO{}) are compared against those obtained with
+\HWJMINLO{} and \HVNNLOPS{}. For observables that are fully inclusive
+over QCD radiation, as $\ptw$, the agreement among the \HVNNLO{} and
+\NNLOPS{} predictions is perfect, as expected. One also notices the
+sizeable reduction of the uncertainty band when \HWJMINLO{} results
+are upgraded to \NNLOPS{}. As no particularly tight cuts are imposed,
+the NNLO/NLO K-factor is almost exactly flat.  The right panel shows
+instead the effects due to the Sudakov resummation. At small
+transverse momenta, the NNLO cross section becomes larger and larger
+due to the singular behaviour of the matrix elements for $HW$
+production in association with arbitrarly soft-collinear
+emissions. The \MINLO{} method resums the logarithms associated to
+these emissions, thereby producing the typical Sudakov peak, which for
+this process is located at $1$ GeV $ \lesssim \ptwh \lesssim 4$ GeV, as
+expected from the fact that the LO process is Drell-Yan like.  It is
+also interesting to notice here two other features that occur away
+from the collinear singularity, and which are useful to understand
+plots to be shown in the following. Firstly, the $\pt$-dependence of
+the NNLO reweighting can be explicitly seen in the bottom panel, where
+one can also appreciate that at very large values not only the
+\NNLOPS{} and \MINLO{} results approach each other, but also that the
+uncertainty band of \HVNNLOPS{} becomes progressively larger (in fact,
+in this region, the nominal accuracy is NLO). Secondly, in the region
+$30$ GeV $\lesssim \ptwh \lesssim 200$ GeV, the NNLO and \NNLOPS{}
+lines show deviations of up to 10 \%: these are due both to the
+compensation that needs taking place in order for the two results to
+integrate to the same total cross section, as well as to the fact that
+the scale choices are different (fixed for the NNLO line, dynamic and
+set to $\ptwh$ in \MINLO{}). At $\ptwh\simeq 200-250$ GeV the two
+predictions agree quite well, since this is the region of phase space
+where the \MINLO{} scale approaches that used at NNLO ($\mu =
+M_{\scriptscriptstyle H}+M_{\scriptscriptstyle W}$). The two lines
+don't cross at $\pt\simeq M_{\scriptscriptstyle
+  H}+M_{\scriptscriptstyle W}$ but rather at slightly larger values,
+because the effects of spreading the NNLO/NLO K factor not uniformly
+in $\pt$ are still noticeable, although small, at 200 GeV.
+
+In Fig.~\ref{fig:extra_ptj1_yj1} we show the transverse momentum and the
+rapidity of the hardest jet.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.47\textwidth,page=5]{./WG1/VBFplusVH/plots/final-all-hadr-plots-2.pdf}
+  \includegraphics[width=0.47\textwidth,page=6]{./WG1/VBFplusVH/plots/final-all-hadr-plots-2.pdf}
+  \caption{Comparison of \HWJMINLOPS{} (blue), NNLO (green), and \HWNNLOPS{} (red) for $\ptjone$ (left) and $\yjone$ (right).}
+  \label{fig:extra_ptj1_yj1}
+\end{figure}
+Most of the differences among these three predictions can be easily
+explained by the considerations made above on the $\ptwh$ spectrum,
+although here effects due to multiple radiation as well as
+hadronization are bound to play some role too.  In
+Fig.~\ref{fig:extra_ptj1_yj1} we notice that, for large values of
+$|y_{j_1}|$, there are large differences among the NNLO result and
+those containing Sudakov resummation: this is expected, since a
+large-rapidity jet has on average a smaller transverse momentum, hence
+the singular nature of the NNLO result is more evident in these
+kinematics configurations.
+
+    
+Next we find it interesting to examine the size of
+non-perturbative effects.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.47\textwidth,page=1]{./WG1/VBFplusVH/plots/final-all-pheno-plots-2.pdf}
+  \includegraphics[width=0.47\textwidth,page=2]{./WG1/VBFplusVH/plots/final-all-pheno-plots-2.pdf}
+  \caption{Comparison of \HWNNLOPSshort{} with (red) and without (blue) hadronization for $\ptjone$ (left) and $\yjone$ (right).}
+  \label{fig:extra_nohad_ptj1_yj1}
+\end{figure}
+As shown in Fig.~\ref{fig:extra_nohad_ptj1_yj1}, hadronization has a
+sizeable impact on the shapes of jet distributions: differences up to
+$7\hspace{-0.05cm}-\hspace{-0.05cm}8~\%$ can be seen in the jet $\pt$
+spectrum at small values, and are still visible at a few percent
+level till when relatively hard jets are required ($\ptjone > 100$
+GeV). Even larger effects can be seen in the rapidity distribution (right panel) at large rapidities. The \HVNNLOPS{} generator allows us to simulate these features in a
+fully-exclusive way, retaining at the same time all the virtues of an
+NNLO computation for fully inclusive observables, as well as
+resummation effects, thanks to the interplay among \POWHEG{}, \MINLO{}
+and parton showering.
+
+In Fig.~\ref{fig:yr4_pth_yh_ptlep_ylep} we show the transverse
+momentum and rapidity distributions of the Higgs boson and the charged
+lepton, as predicted by the \HVNNLOPS{} code and by the underlying
+\HWJMINLO{} simulation.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.47\textwidth,page=1]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \includegraphics[width=0.47\textwidth,page=2]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}\\
+%
+  \includegraphics[width=0.47\textwidth,page=4]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \includegraphics[width=0.47\textwidth,page=3]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \caption{Comparison of \HWJMINLOPS{} (blue) and \HWNNLOPS{} (red) for $\pt$ (left) and rapidity (right) for Higgs (upper) and lepton (lower).}
+  \label{fig:yr4_pth_yh_ptlep_ylep}
+\end{figure}
+No particular feature needs be commented in these plots: since no cuts
+are applied on extra radiation, the inclusion of higher order
+corrections just makes the \HVNNLO{} predictions more accurate, as
+expected. On the other hand it is interesting to see how these
+distributions are affected by requiring further cuts, like imposing a
+jet veto or requiring the presence of at least one jet, whilst restricting at
+the same time the phase space to different windows for
+$\ptw$. Figs.~\ref{fig:yr4_0j_w1_pth_yh}, \ref{fig:yr4_1j_w1_pth_yh}
+and~\ref{fig:yr4_1j_w2_pth_yh} display the Higgs boson transverse
+momentum and rapidity in the three following cases:
+\begin{itemize}
+\item no jet (``jet veto''), $\ptw<150$ GeV
+\item at least 1 jet, $\ptw<150$ GeV
+\item at least 1 jet, $150\mbox{ GeV}<\ptw<250$ GeV
+\end{itemize}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.47\textwidth,page=5]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \includegraphics[width=0.47\textwidth,page=6]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \caption{Comparison of \HWJMINLOPS{} (blue) and \HWNNLOPS{} (red) for $\pth$ (left) and $\yh$ (right) for $\ptw<150$ GeV and no jet.}
+  \label{fig:yr4_0j_w1_pth_yh}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.47\textwidth,page=7]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \includegraphics[width=0.47\textwidth,page=8]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \caption{Comparison of \HWJMINLOPS{} (blue) and \HWNNLOPS{} (red) for $\pth$ (left) and $\yh$ (right) for $\ptw<150$ GeV and at least 1 jet.}
+  \label{fig:yr4_1j_w1_pth_yh}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.47\textwidth,page=9]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \includegraphics[width=0.47\textwidth,page=11]{./WG1/VBFplusVH/plots/final-all-yr4.pdf}
+  \caption{Comparison of \HWJMINLOPS{} (blue) and \HWNNLOPS{} (red) for $\pth$ (left) and $\yh$ (right) for $150\mbox{ GeV}<\ptw<250$ GeV and at least 1 jet}
+  \label{fig:yr4_1j_w2_pth_yh}
+\end{figure}
+The first thing to notice is that, in general, the uncertainty band of
+the \NNLOPS{}-accurate prediction is not as narrow as in
+fig.~\ref{fig:yr4_pth_yh_ptlep_ylep}: this is expected and physically
+sound, because the phase space is not fully inclusive with respect to
+the QCD activity, due to the requirements on jets. In the jet-veto
+case, however, the results show that the inclusion of NNLO corrections
+within a \MINLO{}-based simulation is important, since the uncertainty
+band of \HVNNLOPS{}, although larger than in
+Fig.~\ref{fig:yr4_pth_yh_ptlep_ylep}, is still narrower than the
+\HWJMINLO{} one.
+
+The second thing to notice is that, when jets are required, the
+\HVNNLOPS{} predictions display larger uncertainties, a bit smaller
+but in general similar to those obtained with \HWJMINLO{}. This is
+expected, since this is exactly the phase space region where both
+computations are formally NLO accurate. The effect of the NNLO/NLO
+reweighting is still quite visible (both in the overall normalization
+and in the slightly smaller bands) though, due to the fact that the
+cut on the jet transverse momentum is relatively small. This also
+means that the \HWJMINLO{} and \HVNNLOPS{} results are likely to be
+different from fixed order computations, since the use of dynamic
+scales in \MINLO{} and its interplay with resummation has an impact in
+this phase space region, as shown in Fig.~\ref{fig:extra_ptj1_yj1} for
+the associated jet distributions.
+
+The final thing to notice, and the one exception to the general trend
+in the previous observations, is the shrinking of the uncertainty band
+at intermediate values of $\pth$ in Figs.~\ref{fig:yr4_1j_w1_pth_yh}
+and~\ref{fig:yr4_1j_w2_pth_yh}, which is even more noticeable in the
+$y_H$ distributions, the latter being dominated by the kinematics
+where $\pth$ peaks. This feature is due to the requirement on $\ptw$,
+and can be explained as follows. For a fully inclusive kinematics, the
+transverse momenta of the $W$ and $H$ boson are typically balanced,
+with a value of about $40$ GeV (see \emph{e.g.} the peak in
+Figs.~\ref{fig:extra_ptw_ptwh}
+and~\ref{fig:yr4_pth_yh_ptlep_ylep}). When jets are required, at least
+the hardest jet $\pt$ will play a role in the momentum conservation in
+the transverse plane: its typical value, however, depends on the
+requirements on the massive bosons kinematics. From this observation
+the band shrinking in the $\pth$ spectrum can be understood. For
+instance, in Fig.~\ref{fig:yr4_1j_w1_pth_yh}, when $\pth$ approaches
+values close to the larger values available for $\ptw$, one enters a
+region where the jet has to be just above its minimum allowed value:
+this is the region where the uncertainty band in the jet $\pt$
+spectrum is minimal, as shown in Fig.~\ref{fig:extra_ptj1_yj1}. As
+soon as larger $\pth$ values are probed whilst keeping $\ptw<150$ GeV,
+harder jets are required by momentum conservation, hence the
+uncertainty band from \HVNNLOPS{} rapidly approach the one from
+\HWJMINLO{}.  This effect is even more evident in
+Fig.~\ref{fig:yr4_1j_w2_pth_yh}: if $\pth$ is relatively small, then
+momentum conservation doesn't constrain $\ptjone$ very strongly,
+yielding a standard uncertainty band, relatively similar to
+\HWJMINLO{}. In the region where cuts push $\ptw$ and $\pth$ to
+similar values, once more the jet must be close to its threshold
+region, and hence the uncertainty band is reduced.
+
+\section{gg$\to$Zh+jet  (recommendation and uncertainties)}
