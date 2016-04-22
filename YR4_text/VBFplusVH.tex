@@ -1543,115 +1543,174 @@ and with the \POWHEGBOX\ (green line), respectively. The lower panels show the r
 \clearpage
 \section{VH production at NLO+PS}
 %
-Calculations for the VH process matched to parton-shower programs 
-are available at NLO accuracy with \POWHEGBOX~\cite{Nason:2009ai} and {\sc MG5\_aMC}~\cite{} 
-with FxFx merging~\cite{Frederix:2012ps,Frederix:2015eii}, for ZH and WH,
-and at LO for ggZH.
+Calculations for the VH process matched to parton-shower programs are
+available at NLO accuracy with the \POWHEGBOX~\cite{Luisoni:2013kna} and
+{\sc MG5\_aMC}~\cite{} with FxFx
+merging~\cite{Frederix:2012ps,Frederix:2015eii}, for ZH and WH, and at
+LO for ggZH.
 %
+
+Within the \POWHEGBOX{} the computation is carried out using the
+improved \MINLO{} prescription~\cite{Hamilton:2012rf} applied to {\sc
+  HZJ} ({\sc HWJ-MiNLO}) and {\sc HWJ} (\HWJMINLO). The event
+generation was performed in a similar way as described in
+ref.~\cite{Luisoni:2013kna}, but using the
+NNPDF30\_nlo\_as\_118~\cite{Ball:2014uwa} PDF set.
+
 
 A systematic comparison of these calculation for 13 TeV LHC collisions
 has been carried out in several regions of the phase space
 making use of several Rivet~\cite{rivet} analyses, differing for the vector boson and Higgs candidate selection.
 % \subsubsubsection*{$Z(ll)H(bb)$}
-The $Z(ll)H(bb)$ process is studied in the following Z pT bins: inclusive, [0-100]~GeV, (100-200]~GeV, >200~GeV.
-The Z leptons are selected with the following cuts: $|\eta| <2.5$, $p_{T} > 15$ GeV.
+The $Z(ll)H(bb)$ process is studied in the Z pT bins: inclusive, [0-100]~GeV, (100-200]~GeV, >200~GeV.
+The Z leptons are selected with the cuts $|\eta| <2.5$, $p_{T} > 15$ GeV.
 The dilepton invariant mass $m_{ll}$ in required to be in the range [75-105]~GeV.
 % \subsubsubsection*{$Z(\nu\nu)H(bb)$}
-The $Z(\nu\nu)H(bb)$ process is studied in the following Z $p_{T}$ bins: inclusive, [0-150]~GeV, (150-250]~GeV, >250~GeV.
+The $Z(\nu\nu)H(bb)$ process is studied in the Z $p_{T}$ bins: inclusive, [0-150]~GeV, (150-250]~GeV, >250~GeV.
 The Z $p_{T}$ is evaluated through the missing transverse energy of the event.
 % \subsubsubsection*{$W(l\nu)H(bb)$}
-The $W(l\nu)H(bb)$ process is studied in the following W $p_{T}$ bins: inclusive, [0-150]~GeV, (150-250]~GeV, >250~GeV.
+The $W(l\nu)H(bb)$ process is studied in the W $p_{T}$ bins: inclusive, [0-150]~GeV, (150-250]~GeV, >250~GeV.
 The W lepton is required to have $|\eta|<2.5$, $p_{T} > 15$ GeV.
 The neutrino $p_{T}$, evaluated through the missing transverse energy of the event, is required to be above 15 GeV.
 
 The processes are studied as a function of the numer of additional jets,
-defined as ak5 jets reconstructed with fastjet~\cite{} and selected to have $p_T > 20$ GeV and $|\eta| < 4.5$.
-The jet counting is used to define the exclusive VH+0-jet and VH+1-jet regions, used in the experimental analyses~\cite{atlas_vh,cms_vh}.
+reconstructed with fastjet~\cite{} with the anti-$k_T$ algorithm and a cone of 0.5, and selected to have $p_T > 20$ GeV and $|\eta| < 4.5$.
+The jet counting is used to define the exclusive VH+0-jet and VH+1-jet regions and the VH+$\geq$1-jet one, 
+used in the experimental analyses~\cite{Aad:2014xzb,Chatrchyan:2013zna}.
 
 For each process, the Higgs $p_T$ and rapidity, the lepton $p_T$ and rapidity, and the neutrino $p_T$
-are compared in each of the boson $p_T$ bins, for different bins of additional jets.
+are compared in each of the boson $p_T$ bins, for different bins of additional jets
+after normalizing the inclusive cross section to unity.
 
 The results obtained with \POWHEGBOX\ matched with the default \PYTHIA6 (\POWHEG{}+PY6) shower are presented and compared 
-to those obtained with the {\sc MG5\_aMC} implementationm matched with both default \PYTHIA8 ({\sc MG5\_aMC}+PY8) and default \HERWIG7 ({\sc MG5\_aMC}+HW7). 
+to those obtained with the {\sc MG5\_aMC} implementation matched with both default \PYTHIA8 ({\sc MG5\_aMC}+PY8) and default \HERWIG7~\cite{Bellm:2015jjp,Bahr:2008pv} ({\sc MG5\_aMC}+HW7) set-up. 
 % Multiple partonic interactions are disregarded throughout.
 %
 % Comparisons are made with and without the shower hadronization and Higgs decay to bottom quarks.
-Comparisons are made while keeping the Higgs stable.
+Comparisons are made keeping the Higgs stable.
+The plots are shown for the ZH case but similar conclusions apply as well to the WH process.
 %
-When the Higgs is decayed into $b-$quarks, the Higgs candidate is reconstructed
-by selecting the leading b-jet pair $p_T$, where the $b-$jets are required to have $|\eta| <2.5$ and $p_T > 25$ GeV.
+% When the Higgs is decayed into $b-$quarks, the Higgs candidate is reconstructed
+% by selecting the leading b-jet pair $p_T$, where the $b-$jets are required to have $|\eta| <2.5$ and $p_T > 25$ GeV.
 %
-The comparisons are performed after normalizing the total inclusive cross section to unity.
 
-The boson \pt and additional jet multiplicity distributions in the inclusive case are shown in Fig.~\ref{fig:stable__incl_vpt_jets}.
-A very small trend is visible in the boson \pt for {\sc MG5\_aMC}+HW7 when compared with \POWHEG{}+PY6 and {\sc MG5\_aMC}+PY8,
-while the distribution of selected additional jets for {\sc MG5\_aMC}+PY8 deviates at high multiplicity when compared with the other two cases.
-\begin{figure}
+The boson \pt\ and additional jet multiplicity distributions in the inclusive case are shown in Fig.~\ref{fig:stable__incl_vpt_jets}.
+A very small trend is visible in the boson \pt\ for {\sc MG5\_aMC}+HW7 when compared with \POWHEG{}+PY6 and {\sc MG5\_aMC}+PY8,
+while the distribution of additional jets for {\sc MG5\_aMC}+PY8 deviates at high multiplicity when compared with the other two cases.
+\begin{figure}[hptb]
 \centering
 \includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__V_pT.pdf}
 \includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/xcheck_VptIncl_AjetIncl__Sel_najets.pdf}
-\caption{Comparison of the boson \pt (left) and number of additional jets (right) in the inclusive case for $Z(ll)H$.}
+\caption{Comparison of the boson \pt\ (left) and number of additional jets (right) in the inclusive case for $Z(ll)H$.}
 \label{fig:stable__incl_vpt_jets}
 \end{figure}
+%
+The discrepancies highlighted in the comparison of {\sc MG5\_aMC}+PY8 and {\sc MG5\_aMC}+HW7 clearly indicate the need 
+for a careful choice of the parton shower and underlying event tune when performing analyses 
+which require categories with exclusive number of jets and boson \pt\ binning.
+% Also the boson \pt\ distribution looks very similar when using PY6 and PY8, while some trend is visible for HW7. This aspect is also critical
+% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__V_pT.pdf
+% in the choice of the the underlying event tune and parton shower settings.
 
 % While considering the Higgs as a stable particle, 
-In the phase space characterized by inclusive boson \pt and additional jets selection, the Higgs \pt for {\sc MG5\_aMC}+HW7 exhibits 
+In the same phase space, characterized by inclusive boson \pt\ and additional jet selection, the Higgs \pt\ for {\sc MG5\_aMC}+HW7 exhibits 
 the same trend visible for the boson \pt, while the rapidity shapes are well compatible
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_AjetIncl
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/xcheck_VptIncl_AjetIncl__Sel_najets.pdf
 % which is similar for \POWHEG{}+PY6 and {\sc MG5\_aMC}+HW7 while are substantially different for {\sc MG5\_aMC}+PY8,
 as shown in Fig.~\ref{fig:stable__incl_hig}.
-\begin{figure}
+\begin{figure}[hptb]
 \centering
-\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_pT.pdf}
-\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_rap.pdf}
 \includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_pT.pdf}
 \includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_rap.pdf}
-\caption{Comparison of the boson \pt (left) and rapidity (right) in $Z(ll)H$ events (top) and $Z(\nu\nu)H$ events (bottom) in the inclusive jet region.}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__leadlep_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__leadlep_eta.pdf}
+\caption{Comparison of the boson \pt\ and rapidity in $Z(\nu\nu)H$ events, and leading lepton \pt\ and $\eta$ in $Z(ll)H$ events in the inclusive jet region.}
 \label{fig:stable__incl_hig}
 \end{figure}
 
-This discrepancies clearly indicate the need for a careful choice of the underlying event tune
-while performing analyses which require categories with exclusive number of jets.
-% Aldo the boson \pt distribution looks very similar when using PY6 and PY8, while some trend is visible for HW7. This aspect is also critical
-% https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__V_pT.pdf
-% in the choice of the the underlying event tune and parton shower settings.
-
 % Another subtlety is represented by the invariant mass distribution, which is very similar for PY6 and PY8 but different for HW7. 
 % This can be explained with the different modelig if the QED shower. 
-% Also this aspect can have has an impact on observables like the lepton \pt distributions.
+% Also this aspect can have has an impact on observables like the lepton \pt\ distributions.
 % % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/xcheck_VptIncl_AjetIncl__V_mass.png
 
-In the phase space characterized by an inclusive boson \pt and the explicit request for 0 additional jets,
-the shapes are once more very similar but a different normalization can be observed, as reflection of the
-different distribution of additional jets.
+In the phase space characterized by an inclusive boson \pt\ and the explicit request for 0 additional jets,
+the Higgs $p_T$ and rapidity, the lepton $p_T$ and rapidity, and the neutrino $p_T$
+distribution shapes remain well compatible, but a different normalization can be observed as a reflection of the
+different distribution in the additional jet multiplicity.
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_Ajet0
-While requiring the inclusive boson \pt but exactly 1 additional jet,
-the \pt shapes start to deviate a bit, both for the lepton \pt and Higgs \pt.
+While requiring exactly 1 additional jet,
+the lepton and Higgs \pt shapes modeled by HW7 tend to deviate slightly,
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_Ajet1
-Finally, when requiring the inclusive boson \pt and at least 1 additional jet
-the \pt shapes deviate a bit more (both for lepton \pt and Higgs \pt), as well as the
-overall normalization due to the different additional jet distribution as stated above.
+further increasing their discrepancy 
+% Finally, 
+when requiring the inclusive boson \pt\ and at least 1 additional jet,
+% the \pt\ shapes deviate a bit more (both for lepton \pt\ and Higgs \pt), 
+as well as the overall normalization due to the aforementioned differences in the additional jet multiplicity.
+The the boson \pt\ and rapidity in $Z(\nu\nu)H$ events, and leading lepton \pt\ and $\eta$ in $Z(ll)H$ events 
+for the latter case are shown in Fig.~\ref{fig:stable__gt1j_hig}.
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptIncl_Ajetgt1
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptIncl_Ajetgt1__higgs_candidate_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptIncl_Ajetgt1__higgs_candidate_rap.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_Ajetgt1__leadlep_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptIncl_Ajetgt1__leadlep_eta.pdf}
+\caption{Comparison of the boson \pt\ and rapidity in $Z(\nu\nu)H$ events, and leading lepton \pt\ and $\eta$ in $Z(ll)H$ events in the inclusive 
+the inclusive boson \pt\ region requiring at least 1 additional jet.}
+\label{fig:stable__gt1j_hig}
+\end{figure}
 
-In the low boson \pt region, very similar shapes are observed for the inclusive jet selection,
-apart from some mild trend in the low Higgs \pt region especially for HW7.
+Extending the comparison to the low, medium and high boson \pt\ regions defined above,
+consistent results are observed.
+% In the low boson \pt\ region, 
+In particular, well compatible shapes are observed for the inclusive jet selection,
+apart from some minor trend in the low Higgs \pt\ region, especially for HW7.
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_AjetInc
-Very similar shapes for the 0 jet phase space but normalization offset due to usual different distribution int he number of jets.
+The same level of agreement is also observed for the 0- and 1-jet phase spaces, as well as when requiring at least 1 jet, 
+with the normalization offset discussed previously.
+The the boson \pt\ and rapidity in $Z(\nu\nu)H$ events, and leading lepton \pt\ and $\eta$ in $Z(ll)H$ events 
+for high boson \pt\ case when requiring exactly 0 additinal jets are shown in Fig.~\ref{fig:stable__gt1j_highvpt}.
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_Ajet0
-Very similar shapes for exactly 1 jet phase space apart from some trend in the Higgs low pT region especially for HW7.
+% Very similar shapes for exactly 1 jet phase space apart from some trend in the Higgs low pT region especially for HW7.
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_Ajet1
-Very similar shapes are also observed while requiring at least 1 jet, apart from some trend in the low Higgs low \pt region especially for HW7,
-and the normalization offset due to usual different distribution int he number of jets.
+% Finally, Very similar shapes are also observed while requiring at least 1 jet, apart from some trend in the low Higgs low \pt\ region especially for HW7,
+% and the normalization offset due to usual different distribution int he number of jets.
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptLow_Ajetgt1
-
-The considerations expressed above for the low boson \pt are valid while selection both the medium and high boson \pt regions,
-in all the jet categories.
+% The considerations expressed above for the low boson \pt\ are valid while selection both the medium and high boson \pt\ regions,
+% in all the jet categories.
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptMed
 % https://perrozzi.web.cern.ch/perrozzi/rivet_analysis_VH_YR4/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/?match=VptHigh
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptHigh_Ajet0__higgs_candidate_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZNN_HSTABLE_POW_vs_aMCNLO/MC_ZnunuHbb_undecayed/VptHigh_Ajet0__higgs_candidate_rap.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptHigh_Ajet0__leadlep_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_HSTABLE_POW_vs_aMCNLO/MC_ZllHbb_undecayed/VptHigh_Ajet0__leadlep_eta.pdf}
+\caption{Comparison of the boson \pt\ and rapidity in $Z(\nu\nu)H$ events, and leading lepton \pt\ and $\eta$ in $Z(ll)H$ events in the inclusive 
+the inclusive boson \pt\ region requiring 0 additional jet.}
+\label{fig:stable__gt1j_highvpt}
+\end{figure}
 
+Finally, a comparison of the quark-quark ($ZH$) and gloun-gluon ($ggZH$) initiated processes is performed using
+{\sc MG5\_aMC} interfaced with a commont parton shower, namely \PYTHIA8. The plots are shown for the leptonic decay of the Z boson
+but apply as well to the decay into neutrinos.
 
+The relative cross section of the gluon initiated process is $\sim15\%$, but a common normalization to unitary cross section is used,
+to better underline the shape differences.
+The boson \pt\ and additional jet multiplicity distributions in the inclusive case are shown in Fig.~\ref{fig:stable__incl_vpt_jets_ggzh}
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_vs_ggHZLL_HSTABLE_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__V_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_vs_ggHZLL_HSTABLE_aMCNLO/MC_ZllHbb_undecayed/xcheck_VptIncl_AjetIncl__Sel_najets.pdf}
+\caption{Comparison of the boson \pt\ (left) and number of additional jets (right) in the inclusive case for $Z(ll)H$.}
+\label{fig:stable__incl_vpt_jets_ggzh}
+\end{figure}
+Two correlated features can be observed: both the boson \pt\ and the multiplicity of additional jets are much harder for the gluon initiated contribution.
+Therefore in the high boson \pt\ region, usually regarded as the most sensitive, and in presence of at least 1 jet, the relative contribution of $ggZ(ll)H$
+is much higher.
 
+\clearpage
 \section{NNLOPS for VH}
 
 We report about a study of the Higgs boson production in association with a $W^{+}$
@@ -1997,4 +2056,4 @@ yielding a standard uncertainty band, relatively similar to
 similar values, once more the jet must be close to its threshold
 region, and hence the uncertainty band is reduced.
 
-\section{gg$\to$Zh+jet  (recommendation and uncertainties)}
+% \section{gg$\to$Zh+jet  (recommendation and uncertainties)}
