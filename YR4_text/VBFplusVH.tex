@@ -1545,9 +1545,10 @@ and with the \POWHEGBOX\ (green line), respectively. The lower panels show the r
 %
 Calculations for the VH process matched to parton-shower programs are
 available at NLO accuracy with the \POWHEGBOX~\cite{Luisoni:2013kna} and
-{\sc MG5\_aMC}~\cite{} with FxFx
+{\sc MG5\_aMC}~\cite{Alwall:2014hca} with FxFx
 merging~\cite{Frederix:2012ps,Frederix:2015eii}, for ZH and WH, and at
-LO for ggZH.
+LO for ggZH. Although not used in this report, the gluon gluon fusion contribution 
+can be generated with additional jets that can be merged with MLM merging~\cite{Hespel:2015zea}.
 %
 
 Within the \POWHEGBOX{} the computation is carried out using the
@@ -1574,7 +1575,8 @@ The W lepton is required to have $|\eta|<2.5$, $p_{T} > 15$ GeV.
 The neutrino $p_{T}$, evaluated through the missing transverse energy of the event, is required to be above 15 GeV.
 
 The processes are studied as a function of the numer of additional jets,
-reconstructed with fastjet~\cite{} with the anti-$k_T$ algorithm and a cone of 0.5, and selected to have $p_T > 20$ GeV and $|\eta| < 4.5$.
+reconstructed with fastjet~\cite{Cacciari:2011ma} with the anti-$k_T$ algorithm and a cone of 0.5, 
+and selected to have $p_T > 20$ GeV and $|\eta| < 4.5$.
 The jet counting is used to define the exclusive VH+0-jet and VH+1-jet regions and the VH+$\geq$1-jet one, 
 used in the experimental analyses~\cite{Aad:2014xzb,Chatrchyan:2013zna}.
 
@@ -1709,6 +1711,18 @@ The boson \pt\ and additional jet multiplicity distributions in the inclusive ca
 Two correlated features can be observed: both the boson \pt\ and the multiplicity of additional jets are much harder for the gluon initiated contribution.
 Therefore in the high boson \pt\ region, usually regarded as the most sensitive, and in presence of at least 1 jet, the relative contribution of $ggZ(ll)H$
 is much higher.
+The the boson \pt\ and rapidity, and leading lepton \pt\ and $\eta$ in $ggZ(ll)H$ events
+for high boson \pt\ case when requiring exactly 0 additinal jets are shown in Fig.~\ref{fig:stable__incl_vpt_jets_ggzh2} compared to $Z(ll)H$.
+%
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_vs_ggHZLL_HSTABLE_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_vs_ggHZLL_HSTABLE_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__higgs_candidate_rap.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_vs_ggHZLL_HSTABLE_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__leadlep_pT.pdf}
+\includegraphics[width=.47\textwidth]{./WG1/VBFplusVH/VHNLOPS/YR4_HZLL_vs_ggHZLL_HSTABLE_aMCNLO/MC_ZllHbb_undecayed/VptIncl_AjetIncl__leadlep_eta.pdf}
+\caption{Comparison of the boson \pt\ and rapidity, and leading lepton \pt\ and $\eta$ in $ggZ(ll)H$ $Z(ll)H$ events in the inclusive jet region.}
+\label{fig:stable__incl_vpt_jets_ggzh2}
+\end{figure}
 
 \clearpage
 \section{NNLOPS for VH}
