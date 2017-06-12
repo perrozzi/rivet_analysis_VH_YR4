@@ -18,6 +18,7 @@ namespace Rivet {
 
   using namespace Cuts;
   Cut cut = etaIn(-5,5) & (Cuts::pT >= 0.0*GeV);
+  Cut cut_pid_higgs = (Cuts::pid==PID::HIGGS);
 
   static const size_t NJet_bins = 4;
   
