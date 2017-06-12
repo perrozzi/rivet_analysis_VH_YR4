@@ -271,7 +271,7 @@ namespace Rivet {
       higgs_candidate = dijet;
       
       // cout << "before veto: higgs_candidate.pT()= " << higgs_candidate.pT() << endl;
-      if( ! higgs_candidate.pT()>0 ) vetoEvent;
+      if( ! (higgs_candidate.pT()>0 )) vetoEvent;
 
       Z = znunu[0].momentum();
       

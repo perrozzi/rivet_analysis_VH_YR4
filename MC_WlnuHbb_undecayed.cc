@@ -242,7 +242,7 @@ namespace Rivet {
       higgs_candidate = higgses[0].momentum();
       
       // cout << "before veto: higgs_candidate.pT()= " << higgs_candidate.pT() << endl;
-      if( ! higgs_candidate.pT()>0 ) vetoEvent;
+      if( ! (higgs_candidate.pT()>0 )) vetoEvent;
 
       W = wlnu[0].momentum();
       
