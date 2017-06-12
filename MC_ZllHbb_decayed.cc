@@ -49,10 +49,10 @@ namespace Rivet {
       ////////////////////////////////////////////////////////
       // Unstable Higgs
       ////////////////////////////////////////////////////////
-      Cut cut_pid_higgs = (Cuts::pid==PID::HIGGS);
-      UnstableFinalState undec_higgs(cut_pid_higgs);
+      //Cut cut_pid_higgs = (Cuts::pid==PID::HIGGS);
+      //UnstableFinalState undec_higgs(cut_pid_higgs);
       //UnstableFinalState undec_higgs(PID::HIGGS);
-      addProjection(undec_higgs, "UFS");
+      //addProjection(undec_higgs, "UFS");
       IdentifiedFinalState higgses(PID::HIGGS);
       jetproinput.addVetoOnThisFinalState(higgses);
       addProjection(higgses, "Higgses");
@@ -182,7 +182,7 @@ namespace Rivet {
       ParticleVector higgses =
       applyProjection<IdentifiedFinalState>(event, "Higgses").particles();
       // unstable higgs
-      const UnstableFinalState& undec_higgs = applyProjection<UnstableFinalState>(event, "UFS");
+      //const UnstableFinalState& undec_higgs = applyProjection<UnstableFinalState>(event, "UFS");
       // jets
       const FastJets& jetpro = applyProjection<FastJets>(event,"jetpro");
       ParticleVector rest =
@@ -262,7 +262,8 @@ namespace Rivet {
 
       // std::cout << "higgses.size()= "<< higgses.size() << " alljets.size()= "<< alljets.size() << " b_indices.size()= "<< b_indices.size() << " undec_higgs.size()= "<< undec_higgs.size() << std::endl;
       // require at least 2 b jets or undecayed higgs
-      if (b_indices.size() < 2 && undec_higgs.size() == 0 && higgses.size() == 0) vetoEvent;
+      //if (b_indices.size() < 2 && undec_higgs.size() == 0 && higgses.size() == 0) vetoEvent;
+      if (b_indices.size() < 2 && higgses.size() == 0) vetoEvent;
       if (higgses.size()>1) vetoEvent;
 
       // higgs_candidate = higgses[0].momentum();
