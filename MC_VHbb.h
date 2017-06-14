@@ -1,4 +1,4 @@
-#include "Rivet/Cuts.hh"
+#include "Rivet/Tools/Cuts.hh" 
 #include "Rivet/Analysis.hh"
 #include "Rivet/Projections/VetoedFinalState.hh"
 #include "Rivet/Projections/FinalState.hh"
@@ -17,7 +17,8 @@ namespace Rivet {
   //////////////////////////////////////////////////
 
   using namespace Cuts;
-  Cut cut = etaIn(-5,5) & (pT >= 0.0*GeV);
+  Cut cut = etaIn(-5,5) & (Cuts::pT >= 0.0*GeV);
+  Cut cut_pid_higgs = (Cuts::pid==PID::HIGGS);
 
   static const size_t NJet_bins = 4;
   
@@ -30,8 +31,8 @@ namespace Rivet {
   
   string ptbin_labels[Vpt_bins]             =   {  "Incl",  "Low",  "Med",   "High"};
   
-  double cut_Zll_pt_low_edge_bin[Vpt_bins]  =   {   0*GeV,  0*GeV,100*GeV, 200*GeV};
-  double cut_Zll_pt_high_edge_bin[Vpt_bins] =   {1e10*GeV,100*GeV,200*GeV,1e10*GeV};
+  double cut_Zll_pt_low_edge_bin[Vpt_bins]  =   {   0*GeV,  0*GeV,150*GeV, 250*GeV};
+  double cut_Zll_pt_high_edge_bin[Vpt_bins] =   {1e10*GeV,150*GeV,250*GeV,1e10*GeV};
 
   double cut_Znunu_pt_low_edge_bin[Vpt_bins]  = {   0*GeV,  0*GeV,150*GeV, 250*GeV};
   double cut_Znunu_pt_high_edge_bin[Vpt_bins] = {1e10*GeV,150*GeV,250*GeV,1e10*GeV};

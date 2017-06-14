@@ -1,4 +1,4 @@
-// -*- C++ -*-
+// -*- C++ -*- 
 #include "MC_VHbb.h"
 
 namespace Rivet {
@@ -49,7 +49,9 @@ namespace Rivet {
       ////////////////////////////////////////////////////////
       // Unstable Higgs
       ////////////////////////////////////////////////////////
-      UnstableFinalState undec_higgs(PID::HIGGS);
+      Cut cut_pid_higgs = (Cuts::pid==PID::HIGGS);
+      UnstableFinalState undec_higgs(cut_pid_higgs);
+      //UnstableFinalState undec_higgs(PID::HIGGS);
       addProjection(undec_higgs, "UFS");
       IdentifiedFinalState higgses(PID::HIGGS);
       jetproinput.addVetoOnThisFinalState(higgses);
@@ -264,7 +266,7 @@ namespace Rivet {
       higgs_candidate = dijet;
       
       // cout << "before veto: higgs_candidate.pT()= " << higgs_candidate.pT() << endl;
-      if( ! higgs_candidate.pT()>0 ) vetoEvent;
+      if( ! (higgs_candidate.pT()>0 )) vetoEvent;
 
       W = wlnu[0].momentum();
       
@@ -307,7 +309,8 @@ namespace Rivet {
       // Jet resolutions and integrated jet rates
       double d_ij;
       const FastJets& jetpro_kt = applyProjection<FastJets>(event,"jetpro_kt");
-      const fastjet::ClusterSequence* seq = jetpro_kt.clusterSeq();
+      //const fastjet::ClusterSequence* seq = jetpro_kt.clusterSeq();
+      const shared_ptr<fastjet::ClusterSequence> seq = jetpro_kt.clusterSeq();
       if (seq != NULL) {
         for (size_t i = 0; i < njets; ++i) {
           // Jet resolution i -> j

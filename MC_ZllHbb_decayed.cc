@@ -1,4 +1,4 @@
-// -*- C++ -*-
+// -*- C++ -*- 
 #include "MC_VHbb.h"
 
 namespace Rivet {
@@ -49,8 +49,10 @@ namespace Rivet {
       ////////////////////////////////////////////////////////
       // Unstable Higgs
       ////////////////////////////////////////////////////////
-      UnstableFinalState undec_higgs(PID::HIGGS);
-      addProjection(undec_higgs, "UFS");
+      //Cut cut_pid_higgs = (Cuts::pid==PID::HIGGS);
+      //UnstableFinalState undec_higgs(cut_pid_higgs);
+      //UnstableFinalState undec_higgs(PID::HIGGS);
+      //addProjection(undec_higgs, "UFS");
       IdentifiedFinalState higgses(PID::HIGGS);
       jetproinput.addVetoOnThisFinalState(higgses);
       addProjection(higgses, "Higgses");
@@ -180,7 +182,7 @@ namespace Rivet {
       ParticleVector higgses =
       applyProjection<IdentifiedFinalState>(event, "Higgses").particles();
       // unstable higgs
-      const UnstableFinalState& undec_higgs = applyProjection<UnstableFinalState>(event, "UFS");
+      //const UnstableFinalState& undec_higgs = applyProjection<UnstableFinalState>(event, "UFS");
       // jets
       const FastJets& jetpro = applyProjection<FastJets>(event,"jetpro");
       ParticleVector rest =
@@ -260,14 +262,15 @@ namespace Rivet {
 
       // std::cout << "higgses.size()= "<< higgses.size() << " alljets.size()= "<< alljets.size() << " b_indices.size()= "<< b_indices.size() << " undec_higgs.size()= "<< undec_higgs.size() << std::endl;
       // require at least 2 b jets or undecayed higgs
-      if (b_indices.size() < 2 && undec_higgs.size() == 0 && higgses.size() == 0) vetoEvent;
+      //if (b_indices.size() < 2 && undec_higgs.size() == 0 && higgses.size() == 0) vetoEvent;
+      if (b_indices.size() < 2 && higgses.size() == 0) vetoEvent;
       if (higgses.size()>1) vetoEvent;
 
       // higgs_candidate = higgses[0].momentum();
       higgs_candidate = dijet;
       
       // cout << "before veto: higgs_candidate.pT()= " << higgs_candidate.pT() << endl;
-      if( ! higgs_candidate.pT()>0 ) vetoEvent;
+      if( ! (higgs_candidate.pT()>0 )) vetoEvent;
 
       Z = zll[0].momentum();
       
@@ -312,7 +315,8 @@ namespace Rivet {
       // Jet resolutions and integrated jet rates
       double d_ij;
       const FastJets& jetpro_kt = applyProjection<FastJets>(event,"jetpro_kt");
-      const fastjet::ClusterSequence* seq = jetpro_kt.clusterSeq();
+      //const fastjet::ClusterSequence* seq = jetpro_kt.clusterSeq();
+      const shared_ptr<fastjet::ClusterSequence> seq = jetpro_kt.clusterSeq();
       if (seq != NULL) {
         for (size_t i = 0; i < njets; ++i) {
           // Jet resolution i -> j
